@@ -1,5 +1,11 @@
 package hexlet.code.games;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.BiFunction;
+
 import static hexlet.code.util.GameService.getRandomIntInRange;
 
 /**
@@ -11,7 +17,17 @@ public class Calculator extends AbstractGame {
     private int firstRandomOperand;
     private int secondRandomOperand;
     private String randomOperator;
-    String[] operators = {"+", "-", "*"};
+    private final Map<String, BiFunction<Integer, Integer, Integer>> mathOperations;
+    private final List<String> compatibleOperators;
+
+    public Calculator() {
+        mathOperations = new HashMap<>();
+        mathOperations.put("*", (a, b) -> a * b);
+        mathOperations.put("+", Integer::sum);
+        mathOperations.put("-", (a, b) -> a - b);
+        compatibleOperators = new ArrayList<>();
+        compatibleOperators.addAll(mathOperations.keySet());
+    }
 
     @Override
     public String getRules() {
@@ -22,7 +38,7 @@ public class Calculator extends AbstractGame {
     protected String createQuestion() {
         firstRandomOperand = getRandomIntInRange(1, 100);
         secondRandomOperand = getRandomIntInRange(1, 100);
-        randomOperator = operators[getRandomIntInRange(0, operators.length - 1)];
+        randomOperator = compatibleOperators.get(getRandomIntInRange(0, compatibleOperators.size() - 1));
         return String.format("%d %s %d", firstRandomOperand, randomOperator, secondRandomOperand);
     }
 
@@ -33,17 +49,6 @@ public class Calculator extends AbstractGame {
 
 
     private int calculate(int firstNumber, int secondNumber, String operator) {
-        switch (operator) {
-            case "+" -> {
-                return firstNumber + secondNumber;
-            }
-            case "-" -> {
-                return firstNumber - secondNumber;
-            }
-            case "*" -> {
-                return firstNumber * secondNumber;
-            }
-            default -> throw new IllegalStateException();
-        }
+        return mathOperations.get(operator).apply(firstNumber, secondNumber);
     }
 }
