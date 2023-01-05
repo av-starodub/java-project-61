@@ -1,10 +1,5 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
-import static hexlet.code.util.ConsoleService.askUser;
-import static hexlet.code.util.ConsoleService.getUserAnswer;
-import static hexlet.code.util.ConsoleService.print;
 import static hexlet.code.util.GameService.getRandomIntInRange;
 
 /**
@@ -13,21 +8,17 @@ import static hexlet.code.util.GameService.getRandomIntInRange;
  * And he needs to answer yes if the number is even, or no if it is odd.
  */
 public class Even extends AbstractGame {
-    public Even() {
+    private int randomNumber;
+
+    @Override
+    protected String createQuestion() {
+        randomNumber = getRandomIntInRange(0, 1000);
+        return String.valueOf(randomNumber);
     }
 
     @Override
-    public boolean doTask(Scanner scanner) {
-        var number = getRandomIntInRange(0, 1000);
-        askUser(String.valueOf(number));
-        var userAnswer = getUserAnswer(scanner);
-        var correctAnswer = isEven(number) ? "yes" : "no";
-
-        if (!correctAnswer.equals(userAnswer)) {
-            print(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\n", userAnswer, correctAnswer));
-            return false;
-        }
-        return true;
+    protected String getCorrectAnswer() {
+        return isEven(randomNumber) ? "yes" : "no";
     }
 
     @Override

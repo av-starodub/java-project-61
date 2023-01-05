@@ -1,10 +1,5 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
-import static hexlet.code.util.ConsoleService.askUser;
-import static hexlet.code.util.ConsoleService.getUserAnswer;
-import static hexlet.code.util.ConsoleService.print;
 import static hexlet.code.util.GameService.getRandomIntInRange;
 
 /**
@@ -13,51 +8,42 @@ import static hexlet.code.util.GameService.getRandomIntInRange;
  * which must be calculated and the correct answer written down.
  */
 public class Calculator extends AbstractGame {
-    @Override
-    public boolean doTask(Scanner scanner) {
-        String[] operators = {"+", "-", "*"};
-
-        var firstOperand = getRandomIntInRange(1, 100);
-        var secondOperand = getRandomIntInRange(1, 100);
-        var randomOperator = operators[getRandomIntInRange(0, operators.length - 1)];
-        var expression = String.format("%d %s %d", firstOperand, randomOperator, secondOperand);
-
-        askUser(expression);
-        var userAnswer = getUserAnswer(scanner);
-        var correctAnswer = calculate(firstOperand, secondOperand, randomOperator);
-
-        if (!isCorrect(correctAnswer, userAnswer)) {
-            print(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\n", userAnswer, correctAnswer));
-            return false;
-        }
-        return true;
-    }
+    private int firstRandomOperand;
+    private int secondRandomOperand;
+    private String randomOperator;
+    String[] operators = {"+", "-", "*"};
 
     @Override
     public String getRules() {
         return "What is the result of the expression?.";
     }
 
-    private int calculate(int first, int second, String operator) {
-        switch (operator) {
-            case "+" -> {
-                return first + second;
-            }
-            case "-" -> {
-                return first - second;
-            }
-            case "*" -> {
-                return first * second;
-            }
-            default -> throw new IllegalStateException();
-        }
+    @Override
+    protected String createQuestion() {
+        firstRandomOperand = getRandomIntInRange(1, 100);
+        secondRandomOperand = getRandomIntInRange(1, 100);
+        randomOperator = operators[getRandomIntInRange(0, operators.length - 1)];
+        return String.format("%d %s %d", firstRandomOperand, randomOperator, secondRandomOperand);
     }
 
-    private boolean isCorrect(int expected, String userAnswer) {
-        try {
-            return expected == Integer.parseInt(userAnswer);
-        } catch (NumberFormatException nfe) {
-            return false;
+    @Override
+    protected String getCorrectAnswer() {
+        return String.valueOf(calculate(firstRandomOperand, secondRandomOperand, randomOperator));
+    }
+
+
+    private int calculate(int firstNumber, int secondNumber, String operator) {
+        switch (operator) {
+            case "+" -> {
+                return firstNumber + secondNumber;
+            }
+            case "-" -> {
+                return firstNumber - secondNumber;
+            }
+            case "*" -> {
+                return firstNumber * secondNumber;
+            }
+            default -> throw new IllegalStateException();
         }
     }
 }
