@@ -1,7 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Calculator;
-import hexlet.code.games.Even;
+import hexlet.code.util.Engine;
 
 import java.nio.charset.Charset;
 import java.util.Scanner;
@@ -19,8 +18,7 @@ public class App {
         var userChoice = getUserChoice(sc);
         switch (userChoice) {
             case "1" -> sayHello(getUserName(sc));
-            case "2" -> new Even().play(sc);
-            case "3" -> new Calculator().play(sc);
+            case "2", "3" -> Engine.play(sc, userChoice);
             case "0" -> print("See you!\n");
             default -> print("\n");
         }

@@ -4,54 +4,38 @@ import java.util.Scanner;
 
 import static hexlet.code.util.ConsoleService.askUser;
 import static hexlet.code.util.ConsoleService.getUserAnswer;
-import static hexlet.code.util.ConsoleService.getUserName;
 import static hexlet.code.util.ConsoleService.print;
-import static hexlet.code.util.ConsoleService.sayHello;
-import static hexlet.code.util.ConsoleService.sayToUser;
-import static hexlet.code.util.GameService.getIntInRange;
+import static hexlet.code.util.GameService.getRandomIntInRange;
 
 /**
  * Game "Calculator".
  * The user is shown a random mathematical expression, such as 35 + 16,
  * which must be calculated and the correct answer written down.
  */
-public class Calculator {
-    public void play(Scanner scanner) {
-        int correctAnswers = 0;
-
-        String userName = getUserName(scanner);
-        sayHello(userName);
-        print("What is the result of the expression?.\n");
-
-        while (correctAnswers < 3) {
-            if (!doTask(scanner)) {
-                sayToUser("Let's try again", userName);
-                return;
-            }
-            print("Correct!\n");
-            correctAnswers++;
-        }
-        sayToUser("Congratulations", userName);
-    }
-
-    private boolean doTask(Scanner scanner) {
+public class Calculator extends AbstractGame {
+    @Override
+    public boolean doTask(Scanner scanner) {
         String[] operators = {"+", "-", "*"};
 
-        var first = getIntInRange(1, 100);
-        var second = getIntInRange(1, 100);
-        var randomIdx = getIntInRange(0, operators.length - 1);
-        var operator = operators[randomIdx];
-        var expression = String.format("%d %s %d", first, operator, second);
+        var firstOperand = getRandomIntInRange(1, 100);
+        var secondOperand = getRandomIntInRange(1, 100);
+        var randomOperator = operators[getRandomIntInRange(0, operators.length - 1)];
+        var expression = String.format("%d %s %d", firstOperand, randomOperator, secondOperand);
 
         askUser(expression);
         var userAnswer = getUserAnswer(scanner);
-        var expected = calculate(first, second, operator);
+        var correctAnswer = calculate(firstOperand, secondOperand, randomOperator);
 
-        if (!isCorrect(expected, userAnswer)) {
-            print(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\n", userAnswer, expected));
+        if (!isCorrect(correctAnswer, userAnswer)) {
+            print(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\n", userAnswer, correctAnswer));
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String getRules() {
+        return "What is the result of the expression?.";
     }
 
     private int calculate(int first, int second, String operator) {

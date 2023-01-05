@@ -47,6 +47,9 @@ public final class ConsoleService {
         return sc.nextLine();
     }
 
+    public static void printRules(String rules) {
+        print(rules + "\n");
+    }
     public static void print(String message) {
         System.out.print(message);
     }
