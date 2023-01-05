@@ -2,12 +2,13 @@ package hexlet.code.games;
 
 import java.util.Scanner;
 
-import static hexlet.code.util.Cli.greet;
 import static hexlet.code.util.ConsoleService.askUser;
 import static hexlet.code.util.ConsoleService.getUserAnswer;
 import static hexlet.code.util.ConsoleService.getUserName;
 import static hexlet.code.util.ConsoleService.print;
+import static hexlet.code.util.ConsoleService.sayHello;
 import static hexlet.code.util.ConsoleService.sayToUser;
+import static hexlet.code.util.GameService.getIntInRange;
 
 /**
  * Game "Check for parity".
@@ -19,26 +20,25 @@ public class Even {
     }
 
     public void play(Scanner scanner) {
-        int numberOfCorrect = 0;
+        int correctAnswers = 0;
 
-        print(greet());
-        var userName = getUserName(scanner);
-        print(sayToUser("Hello", userName));
+        String userName = getUserName(scanner);
+        sayHello(userName);
         print("Answer 'yes' if the number is even, otherwise answer 'no'.\n");
 
-        while (numberOfCorrect < 3) {
+        while (correctAnswers < 3) {
             if (!doTask(scanner)) {
-                print(sayToUser("Let's try again", userName));
+                sayToUser("Let's try again", userName);
                 return;
             }
             print("Correct!\n");
-            numberOfCorrect++;
+            correctAnswers++;
         }
-        print(sayToUser("Congratulations", userName));
+        sayToUser("Congratulations", userName);
     }
 
     private boolean doTask(Scanner scanner) {
-        var number = (int) (Math.random() * 1000) + 1;
+        var number = getIntInRange(0, 1000);
         askUser(String.valueOf(number));
         var userAnswer = getUserAnswer(scanner);
         var expected = isEven(number) ? "yes" : "no";
