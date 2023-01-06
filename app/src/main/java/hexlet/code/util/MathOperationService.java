@@ -1,5 +1,7 @@
 package hexlet.code.util;
 
+import java.math.BigInteger;
+
 public final class MathOperationService {
     private MathOperationService() {
     }
@@ -32,5 +34,9 @@ public final class MathOperationService {
             next += step;
         }
         return progression;
+    }
+
+    public static boolean isPrime(int number) {
+        return BigInteger.valueOf(number).isProbablePrime((int) Math.log(number));
     }
 }

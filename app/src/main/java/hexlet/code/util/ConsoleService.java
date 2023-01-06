@@ -16,6 +16,7 @@ public final class ConsoleService {
                 3 - Calc
                 4 - GCD
                 5 - Progression
+                6 - Prime
                 0 - Exit
                 """
         );

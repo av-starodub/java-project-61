@@ -5,6 +5,7 @@ import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Game;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 public final class GameFactory {
     private GameFactory() {
@@ -22,6 +23,9 @@ public final class GameFactory {
         }
         if ("5".equals(userChoice)) {
             return new Progression();
+        }
+        if ("6".equals(userChoice)) {
+            return new Prime();
         }
         throw new IllegalStateException("Unable to create game. ");
     }
