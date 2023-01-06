@@ -8,7 +8,7 @@ import static hexlet.code.util.ConsoleService.print;
 
 public abstract class AbstractGame implements Game {
     @Override
-    public boolean doTask(Scanner scanner) {
+    public final boolean doTask(Scanner scanner) {
         var question = createQuestion();
         askUser(question);
         var userAnswer = getUserAnswer(scanner);
@@ -21,7 +21,7 @@ public abstract class AbstractGame implements Game {
     }
 
     @Override
-    public String getRules() {
+    public final String getRules() {
         return rules();
     }
 

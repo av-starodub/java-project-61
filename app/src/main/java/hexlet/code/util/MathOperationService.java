@@ -27,8 +27,10 @@ public final class MathOperationService {
 
     public static int[] getRandomArithmeticProgression(int length) {
         int[] progression = new int[length];
-        int step = getRandomIntInRange(1, 9);
-        int next = getRandomIntInRange(1, 100);
+        int maxStepLength = 9;
+        int max = 100;
+        int step = getRandomIntInRange(1, maxStepLength);
+        int next = getRandomIntInRange(1, max);
         for (var idx = 0; idx < length; idx++) {
             progression[idx] = next;
             next += step;

@@ -11,7 +11,7 @@ import static hexlet.code.util.MathOperationService.getRandomIntInRange;
  * The user is shown a random mathematical expression, such as 35 + 16,
  * which must be calculated and the correct answer written down.
  */
-public class Calculator extends AbstractGame {
+public final class Calculator extends AbstractGame {
     private int firstRandomOperand;
     private int secondRandomOperand;
     private String randomOperator;
@@ -30,8 +30,9 @@ public class Calculator extends AbstractGame {
 
     @Override
     protected String createQuestion() {
-        firstRandomOperand = getRandomIntInRange(1, 100);
-        secondRandomOperand = getRandomIntInRange(1, 100);
+        int max = 100;
+        firstRandomOperand = getRandomIntInRange(1, max);
+        secondRandomOperand = getRandomIntInRange(1, max);
         randomOperator = compatibleOperations.get(getRandomIntInRange(0, compatibleOperations.size() - 1));
         return String.format("%d %s %d", firstRandomOperand, randomOperator, secondRandomOperand);
     }

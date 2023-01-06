@@ -10,13 +10,14 @@ public abstract class AbstractSimpleGame extends AbstractGame {
     private int randomNumber;
 
     @Override
-    protected String createQuestion() {
-        randomNumber = getRandomIntInRange(0, 100);
+    protected final String createQuestion() {
+        int max = 100;
+        randomNumber = getRandomIntInRange(0, max);
         return String.valueOf(randomNumber);
     }
 
     @Override
-    protected String getCorrectAnswer() {
+    protected final String getCorrectAnswer() {
         return check(randomNumber) ? "yes" : "no";
     }
 

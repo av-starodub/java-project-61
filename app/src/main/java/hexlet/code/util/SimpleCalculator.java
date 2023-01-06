@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
 
-public class SimpleCalculator {
+public final class SimpleCalculator {
     private final Map<String, BiFunction<Integer, Integer, Integer>> operations;
 
     public SimpleCalculator() {

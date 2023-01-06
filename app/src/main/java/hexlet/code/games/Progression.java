@@ -8,13 +8,14 @@ import static hexlet.code.util.MathOperationService.getRandomIntInRange;
  * A series of numbers is presented, forming an arithmetic progression.
  * One number is replaced by two dots. The player must determine this number.
  */
-public class Progression extends AbstractGame {
+public final class Progression extends AbstractGame {
     private int missingNumber;
 
     @Override
     protected String createQuestion() {
-        int[] progression = getRandomArithmeticProgression(10);
-        int randomIdx = getRandomIntInRange(0, 9);
+        int progressionLength = 10;
+        int[] progression = getRandomArithmeticProgression(progressionLength);
+        int randomIdx = getRandomIntInRange(0, progressionLength - 1);
         missingNumber = progression[randomIdx];
         StringBuilder question = new StringBuilder();
         for (int number : progression) {

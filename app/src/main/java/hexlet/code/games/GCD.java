@@ -8,7 +8,7 @@ import static hexlet.code.util.MathOperationService.getRandomIntInRange;
  * The user is shown two random numbers, for example 25 50.
  * The user must calculate and enter the greatest common divisor of these numbers.
  */
-public class GCD extends AbstractGame {
+public final class GCD extends AbstractGame {
     private int firstRandomNumber;
     private int secondRandomNumber;
     @Override
@@ -18,8 +18,9 @@ public class GCD extends AbstractGame {
 
     @Override
     protected String createQuestion() {
-        firstRandomNumber = getRandomIntInRange(1, 100);
-        secondRandomNumber = getRandomIntInRange(1, 100);
+        int max = 100;
+        firstRandomNumber = getRandomIntInRange(1, max);
+        secondRandomNumber = getRandomIntInRange(1, max);
         return String.format("%d %d", firstRandomNumber, secondRandomNumber);
     }
 

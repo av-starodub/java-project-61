@@ -7,7 +7,7 @@ import static hexlet.code.util.MathOperationService.isPrime;
  * The essence of the game is as follows: the user is shown a random number.
  * And he needs to answer yes if the number is prime, or no.
  */
-public class Prime extends AbstractSimpleGame {
+public final class Prime extends AbstractSimpleGame {
 
     @Override
     protected boolean check(int randomNumber) {
