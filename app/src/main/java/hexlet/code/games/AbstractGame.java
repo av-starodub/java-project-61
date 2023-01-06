@@ -20,6 +20,13 @@ public abstract class AbstractGame implements Game {
         return true;
     }
 
+    @Override
+    public String getRules() {
+        return rules();
+    }
+
+    protected abstract String rules();
+
     protected abstract String createQuestion();
 
     protected abstract String getCorrectAnswer();

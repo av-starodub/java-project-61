@@ -33,7 +33,7 @@ public class Progression extends AbstractGame {
     }
 
     @Override
-    public String getRules() {
+    protected String rules() {
         return "What number is missing in the progression?";
     }
 }

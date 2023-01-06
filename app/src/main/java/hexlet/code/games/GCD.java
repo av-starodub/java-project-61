@@ -12,7 +12,7 @@ public class GCD extends AbstractGame {
     private int firstRandomNumber;
     private int secondRandomNumber;
     @Override
-    public String getRules() {
+    protected String rules() {
         return "Find the greatest common divisor of given numbers.";
     }
 

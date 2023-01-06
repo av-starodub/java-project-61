@@ -24,7 +24,7 @@ public class Calculator extends AbstractGame {
     }
 
     @Override
-    public String getRules() {
+    protected String rules() {
         return "What is the result of the expression?.";
     }
 
