@@ -12,9 +12,9 @@
 
 Игры:
 
-* [Калькулятор](https://asciinema.org/a/22V8P7PyouASTUtAORh5ghNfB). Арифметические выражения, которые необходимо
-  вычислить.
-* [Прогрессия](https://asciinema.org/a/tJRvhVHVW0O7hjmDN90lweVSg). Поиск пропущенных чисел в последовательности чисел.
+* [Калькулятор. Арифметические выражения, которые необходимо
+  вычислить.](https://asciinema.org/a/22V8P7PyouASTUtAORh5ghNfB)
+* [Прогрессия. Поиск пропущенных чисел в последовательности чисел.](https://asciinema.org/a/tJRvhVHVW0O7hjmDN90lweVSg) 
 * [Определение четного числа](https://asciinema.org/a/rYZEi1BVbc7BX9ygAesuZNvNs).
 * [Определение наибольшего общего делителя](https://asciinema.org/a/oUU46V1PTZKo7l4ae901HOlVb).
-* Определение простого числа.
+* [Определение простого числа](https://asciinema.org/a/qayzlQnCBKqc8BWsz9hKinGiO).
