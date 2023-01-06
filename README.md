@@ -14,7 +14,7 @@
 
 * [Калькулятор](https://asciinema.org/a/22V8P7PyouASTUtAORh5ghNfB). Арифметические выражения, которые необходимо
   вычислить.
-* Прогрессия. Поиск пропущенных чисел в последовательности чисел.
+* [Прогрессия](https://asciinema.org/a/tJRvhVHVW0O7hjmDN90lweVSg). Поиск пропущенных чисел в последовательности чисел.
 * [Определение четного числа](https://asciinema.org/a/rYZEi1BVbc7BX9ygAesuZNvNs).
 * [Определение наибольшего общего делителя](https://asciinema.org/a/oUU46V1PTZKo7l4ae901HOlVb).
 * Определение простого числа.
