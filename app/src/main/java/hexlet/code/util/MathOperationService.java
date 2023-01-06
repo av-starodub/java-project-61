@@ -1,7 +1,7 @@
 package hexlet.code.util;
 
-public final class GameService {
-    private GameService() {
+public final class MathOperationService {
+    private MathOperationService() {
     }
 
     public static int getRandomIntInRange(int min, int max) {
@@ -17,5 +17,9 @@ public final class GameService {
         }
         int reminder = firstNumber % secondNumber;
         return reminder == 0 ? secondNumber : findGCD(secondNumber, reminder);
+    }
+
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }
