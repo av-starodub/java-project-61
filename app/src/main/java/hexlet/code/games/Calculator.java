@@ -4,7 +4,7 @@ import hexlet.code.util.SimpleCalculator;
 
 import java.util.List;
 
-import static hexlet.code.util.GameService.getRandomIntInRange;
+import static hexlet.code.util.MathOperationService.getRandomIntInRange;
 
 /**
  * Game "Calculator".

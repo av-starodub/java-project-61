@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
-import static hexlet.code.util.GameService.getRandomIntInRange;
+import static hexlet.code.util.MathOperationService.getRandomIntInRange;
+import static hexlet.code.util.MathOperationService.isEven;
 
 /**
  * Game "Check for parity".
@@ -24,9 +25,5 @@ public class Even extends AbstractGame {
     @Override
     public String getRules() {
         return "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    }
-
-    private boolean isEven(int number) {
-        return number % 2 == 0;
     }
 }

@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
-import static hexlet.code.util.GameService.findGCD;
-import static hexlet.code.util.GameService.getRandomIntInRange;
+import static hexlet.code.util.MathOperationService.findGCD;
+import static hexlet.code.util.MathOperationService.getRandomIntInRange;
 
 /**
  * Game "GCD" (the greatest common divisor).
