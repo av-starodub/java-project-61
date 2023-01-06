@@ -19,7 +19,7 @@ public class App {
         var userChoice = getUserChoice(sc);
         switch (userChoice) {
             case "1" -> sayHello(getUserName(sc));
-            case "2", "3", "4" -> Engine.play(sc, userChoice);
+            case "2", "3", "4", "5" -> Engine.play(sc, userChoice);
             case "0" -> print("See you!\n");
             default -> print("\n");
         }

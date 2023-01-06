@@ -15,6 +15,7 @@ public final class ConsoleService {
                 2 - Even
                 3 - Calc
                 4 - GCD
+                5 - Progression
                 0 - Exit
                 """
         );

@@ -4,6 +4,7 @@ import hexlet.code.games.Calculator;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Game;
+import hexlet.code.games.Progression;
 
 public final class GameFactory {
     private GameFactory() {
@@ -18,6 +19,9 @@ public final class GameFactory {
         }
         if ("4".equals(userChoice)) {
             return new GCD();
+        }
+        if ("5".equals(userChoice)) {
+            return new Progression();
         }
         throw new IllegalStateException("Unable to create game. ");
     }

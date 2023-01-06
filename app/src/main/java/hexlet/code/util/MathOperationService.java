@@ -22,4 +22,15 @@ public final class MathOperationService {
     public static boolean isEven(int number) {
         return number % 2 == 0;
     }
+
+    public static int[] getRandomArithmeticProgression(int length) {
+        int[] progression = new int[length];
+        int step = getRandomIntInRange(1, 9);
+        int next = getRandomIntInRange(1, 100);
+        for (var idx = 0; idx < length; idx++) {
+            progression[idx] = next;
+            next += step;
+        }
+        return progression;
+    }
 }
