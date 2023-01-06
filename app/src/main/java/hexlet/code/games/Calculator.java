@@ -30,9 +30,8 @@ public final class Calculator extends AbstractGame {
 
     @Override
     protected String createQuestion() {
-        int max = 100;
-        firstRandomOperand = getRandomIntInRange(1, max);
-        secondRandomOperand = getRandomIntInRange(1, max);
+        firstRandomOperand = getRandomIntInRange(1, MAX_VALUE);
+        secondRandomOperand = getRandomIntInRange(1, MAX_VALUE);
         randomOperator = compatibleOperations.get(getRandomIntInRange(0, compatibleOperations.size() - 1));
         return String.format("%d %s %d", firstRandomOperand, randomOperator, secondRandomOperand);
     }

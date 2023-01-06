@@ -11,6 +11,7 @@ import static hexlet.code.util.MathOperationService.getRandomIntInRange;
 public final class GCD extends AbstractGame {
     private int firstRandomNumber;
     private int secondRandomNumber;
+
     @Override
     protected String rules() {
         return "Find the greatest common divisor of given numbers.";
@@ -18,9 +19,8 @@ public final class GCD extends AbstractGame {
 
     @Override
     protected String createQuestion() {
-        int max = 100;
-        firstRandomNumber = getRandomIntInRange(1, max);
-        secondRandomNumber = getRandomIntInRange(1, max);
+        firstRandomNumber = getRandomIntInRange(1, MAX_VALUE);
+        secondRandomNumber = getRandomIntInRange(1, MAX_VALUE);
         return String.format("%d %d", firstRandomNumber, secondRandomNumber);
     }
 

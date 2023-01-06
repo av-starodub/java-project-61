@@ -2,6 +2,9 @@ package hexlet.code.util;
 
 import java.math.BigInteger;
 
+import static hexlet.code.games.AbstractGame.MAX_VALUE;
+import static hexlet.code.games.Progression.MAX_STEP_LENGTH;
+
 public final class MathOperationService {
     private MathOperationService() {
     }
@@ -27,10 +30,8 @@ public final class MathOperationService {
 
     public static int[] getRandomArithmeticProgression(int length) {
         int[] progression = new int[length];
-        int maxStepLength = 9;
-        int max = 100;
-        int step = getRandomIntInRange(1, maxStepLength);
-        int next = getRandomIntInRange(1, max);
+        int step = getRandomIntInRange(1, MAX_STEP_LENGTH);
+        int next = getRandomIntInRange(1, MAX_VALUE);
         for (var idx = 0; idx < length; idx++) {
             progression[idx] = next;
             next += step;

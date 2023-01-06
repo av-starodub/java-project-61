@@ -7,6 +7,7 @@ import static hexlet.code.util.ConsoleService.getUserAnswer;
 import static hexlet.code.util.ConsoleService.print;
 
 public abstract class AbstractGame implements Game {
+    public static final int MAX_VALUE = 100;
     @Override
     public final boolean doTask(Scanner scanner) {
         var question = createQuestion();

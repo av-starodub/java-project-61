@@ -9,13 +9,14 @@ import static hexlet.code.util.MathOperationService.getRandomIntInRange;
  * One number is replaced by two dots. The player must determine this number.
  */
 public final class Progression extends AbstractGame {
+    private static final int MAX_PROGRESSION_LENGTH = 10;
+    public static final int MAX_STEP_LENGTH = 9;
     private int missingNumber;
 
     @Override
     protected String createQuestion() {
-        int progressionLength = 10;
-        int[] progression = getRandomArithmeticProgression(progressionLength);
-        int randomIdx = getRandomIntInRange(0, progressionLength - 1);
+        int[] progression = getRandomArithmeticProgression(MAX_PROGRESSION_LENGTH);
+        int randomIdx = getRandomIntInRange(0, MAX_PROGRESSION_LENGTH - 1);
         missingNumber = progression[randomIdx];
         StringBuilder question = new StringBuilder();
         for (int number : progression) {

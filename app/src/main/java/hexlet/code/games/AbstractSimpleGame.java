@@ -11,8 +11,7 @@ public abstract class AbstractSimpleGame extends AbstractGame {
 
     @Override
     protected final String createQuestion() {
-        int max = 100;
-        randomNumber = getRandomIntInRange(0, max);
+        randomNumber = getRandomIntInRange(0, MAX_VALUE);
         return String.valueOf(randomNumber);
     }
 
