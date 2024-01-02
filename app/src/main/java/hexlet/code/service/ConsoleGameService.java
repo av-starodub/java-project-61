@@ -1,25 +1,15 @@
-package hexlet.code.util;
+package hexlet.code.service;
 
 import java.util.Scanner;
 
 import static hexlet.code.util.Cli.greet;
 
-public final class ConsoleService {
-    private ConsoleService() {
+public final class ConsoleGameService {
+    private ConsoleGameService() {
     }
 
     public static void showMenu() {
-        print("""
-                Please enter the game number and press Enter.
-                1 - Greet
-                2 - Even
-                3 - Calc
-                4 - GCD
-                5 - Progression
-                6 - Prime
-                0 - Exit
-                """
-        );
+        print(GameMenuProvider.create());
     }
 
     public static void sayHello(String name) {

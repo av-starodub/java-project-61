@@ -5,11 +5,11 @@ import hexlet.code.util.Engine;
 import java.nio.charset.Charset;
 import java.util.Scanner;
 
-import static hexlet.code.util.ConsoleService.getUserChoice;
-import static hexlet.code.util.ConsoleService.getUserName;
-import static hexlet.code.util.ConsoleService.print;
-import static hexlet.code.util.ConsoleService.sayHello;
-import static hexlet.code.util.ConsoleService.showMenu;
+import static hexlet.code.service.ConsoleGameService.getUserChoice;
+import static hexlet.code.service.ConsoleGameService.getUserName;
+import static hexlet.code.service.ConsoleGameService.print;
+import static hexlet.code.service.ConsoleGameService.sayHello;
+import static hexlet.code.service.ConsoleGameService.showMenu;
 
 public class App {
     public static void main(String[] args) {

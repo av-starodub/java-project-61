@@ -2,9 +2,9 @@ package hexlet.code.games.base;
 
 import java.util.Scanner;
 
-import static hexlet.code.util.ConsoleService.askUser;
-import static hexlet.code.util.ConsoleService.getUserAnswer;
-import static hexlet.code.util.ConsoleService.print;
+import static hexlet.code.service.ConsoleGameService.askUser;
+import static hexlet.code.service.ConsoleGameService.getUserAnswer;
+import static hexlet.code.service.ConsoleGameService.print;
 
 public abstract class AbstractGame implements Game {
     public static final int MAX_VALUE = 100;

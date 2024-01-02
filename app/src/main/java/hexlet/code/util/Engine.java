@@ -2,11 +2,11 @@ package hexlet.code.util;
 
 import java.util.Scanner;
 
-import static hexlet.code.util.ConsoleService.getUserName;
-import static hexlet.code.util.ConsoleService.print;
-import static hexlet.code.util.ConsoleService.printRules;
-import static hexlet.code.util.ConsoleService.sayHello;
-import static hexlet.code.util.ConsoleService.sayToUser;
+import static hexlet.code.service.ConsoleGameService.getUserName;
+import static hexlet.code.service.ConsoleGameService.print;
+import static hexlet.code.service.ConsoleGameService.printRules;
+import static hexlet.code.service.ConsoleGameService.sayHello;
+import static hexlet.code.service.ConsoleGameService.sayToUser;
 
 public final class Engine {
     private static final int NEEDED_TO_WIN = 3;
