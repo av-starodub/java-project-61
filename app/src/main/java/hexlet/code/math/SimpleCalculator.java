@@ -1,4 +1,4 @@
-package hexlet.code.util;
+package hexlet.code.math;
 
 import java.util.HashMap;
 import java.util.List;

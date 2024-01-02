@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.games.base.AbstractSimpleGame;
 
-import static hexlet.code.util.MathOperationService.isPrime;
+import static hexlet.code.math.MathOperationService.isPrime;
 
 /**
  * Game "Is the number prime?".

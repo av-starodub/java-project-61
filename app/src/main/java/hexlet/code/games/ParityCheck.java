@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.games.base.AbstractSimpleGame;
 
-import static hexlet.code.util.MathOperationService.isEven;
+import static hexlet.code.math.MathOperationService.isEven;
 
 /**
  * Game "Check for parity".

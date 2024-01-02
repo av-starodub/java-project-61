@@ -1,11 +1,11 @@
 package hexlet.code.games;
 
 import hexlet.code.games.base.AbstractGame;
-import hexlet.code.util.SimpleCalculator;
+import hexlet.code.math.SimpleCalculator;
 
 import java.util.List;
 
-import static hexlet.code.util.MathOperationService.getRandomIntInRange;
+import static hexlet.code.math.MathOperationService.getRandomIntInRange;
 
 /**
  * Game "Calculator".
