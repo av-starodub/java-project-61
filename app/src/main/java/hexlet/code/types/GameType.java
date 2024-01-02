@@ -8,20 +8,43 @@ import hexlet.code.games.IsTheNumberPrime;
 import hexlet.code.supplier.GameSupplier;
 
 public enum GameType {
-    EVEN(2, "Even", ParityCheck::new),
-    CALC(3, "Calc", Calculator::new),
-    GCD(4, "GCD", GreatestCommonDivisor::new),
-    PROGRESSION(5, "Progression", ArithmeticProgression::new),
-    PRIME(6, "Prime", IsTheNumberPrime::new);
+    EVEN(2, "Even") {
+        @Override
+        public GameSupplier getGameSupplier() {
+            return ParityCheck::new;
+        }
+    },
+    CALC(3, "Calc") {
+        @Override
+        public GameSupplier getGameSupplier() {
+            return Calculator::new;
+        }
+    },
+    GCD(4, "GCD") {
+        @Override
+        public GameSupplier getGameSupplier() {
+            return GreatestCommonDivisor::new;
+        }
+    },
+    PROGRESSION(5, "Progression") {
+        @Override
+        public GameSupplier getGameSupplier() {
+            return ArithmeticProgression::new;
+        }
+    },
+    PRIME(6, "Prime") {
+        @Override
+        public GameSupplier getGameSupplier() {
+            return IsTheNumberPrime::new;
+        }
+    };
 
     private final int menuNumber;
     private final String title;
-    private final GameSupplier gameSupplier;
 
-    GameType(int menuNumber, String title, GameSupplier gameSupplier) {
+    GameType(int menuNumber, String title) {
         this.menuNumber = menuNumber;
         this.title = title;
-        this.gameSupplier = gameSupplier;
     }
 
     public int getMenuNumber() {
@@ -32,7 +55,5 @@ public enum GameType {
         return title;
     }
 
-    public GameSupplier getGameSupplier() {
-        return gameSupplier;
-    }
+    public abstract GameSupplier getGameSupplier();
 }

@@ -1,7 +1,7 @@
 package hexlet.code;
 
 import hexlet.code.exception.WrongChoiceException;
-import hexlet.code.util.Engine;
+import hexlet.code.engine.Engine;
 
 import java.nio.charset.Charset;
 import java.util.Scanner;

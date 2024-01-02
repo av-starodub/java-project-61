@@ -1,4 +1,4 @@
-package hexlet.code.util;
+package hexlet.code.engine;
 
 import hexlet.code.exception.WrongChoiceException;
 import hexlet.code.factory.GameFactory;
