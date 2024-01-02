@@ -1,5 +1,7 @@
 package hexlet.code.service;
 
+import hexlet.code.games.base.Game;
+
 import java.util.Scanner;
 
 import static hexlet.code.util.Cli.greet;
@@ -9,7 +11,7 @@ public final class ConsoleGameService {
     }
 
     public static void showMenu() {
-        print(GameMenuProvider.create());
+        printMessage(GameMenuProvider.create());
     }
 
     public static void sayHello(String name) {
@@ -17,38 +19,38 @@ public final class ConsoleGameService {
     }
 
     public static String getUserChoice(Scanner scanner) {
-        print("Your choice: ");
+        printMessage("Your choice: ");
         return scanner.nextLine();
     }
 
     public static void sayToUser(String message, String name) {
-        print(String.format("%s, %s!\n", message, name));
+        printMessage(String.format("%s, %s!\n", message, name));
     }
 
     public static String getUserName(Scanner scanner) {
-        print(greet());
-        print("May I have your name? ");
+        printMessage(greet());
+        printMessage("May I have your name? ");
         return scanner.nextLine();
     }
 
     public static void askUser(String question) {
-        print("Question: " + question);
+        printMessage("Question: " + question);
     }
 
     public static String getUserAnswer(Scanner sc) {
-        print("\nYour answer: ");
+        printMessage("\nYour answer: ");
         return sc.nextLine();
     }
 
     public static void exit() {
-        System.out.print("\n");
+        System.out.println();
     }
 
-    public static void printRules(String rules) {
-        print(rules + "\n");
+    public static void printGameRules(Game game) {
+        System.out.println(game.getRules());
     }
 
-    public static void print(String message) {
+    public static void printMessage(String message) {
         System.out.print(message);
     }
 }

@@ -7,8 +7,8 @@ import java.util.Objects;
 import java.util.Scanner;
 
 import static hexlet.code.service.ConsoleGameService.getUserName;
-import static hexlet.code.service.ConsoleGameService.print;
-import static hexlet.code.service.ConsoleGameService.printRules;
+import static hexlet.code.service.ConsoleGameService.printMessage;
+import static hexlet.code.service.ConsoleGameService.printGameRules;
 import static hexlet.code.service.ConsoleGameService.sayHello;
 import static hexlet.code.service.ConsoleGameService.sayToUser;
 
@@ -29,14 +29,14 @@ public final class Engine {
         int numberOfCorrect = 0;
         var userName = getUserName(scanner);
         sayHello(userName);
-        printRules(game.getRules());
+        printGameRules(game);
 
         while (numberOfCorrect < NEEDED_TO_WIN) {
             if (!game.doTask(scanner)) {
                 sayToUser("Let's try again", userName);
                 return;
             }
-            print("Correct!\n");
+            printMessage("Correct!\n");
             numberOfCorrect++;
         }
         sayToUser("Congratulations", userName);

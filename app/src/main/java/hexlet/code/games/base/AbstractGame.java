@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import static hexlet.code.service.ConsoleGameService.askUser;
 import static hexlet.code.service.ConsoleGameService.getUserAnswer;
-import static hexlet.code.service.ConsoleGameService.print;
+import static hexlet.code.service.ConsoleGameService.printMessage;
 
 public abstract class AbstractGame implements Game {
     public static final int MAX_VALUE = 100;
@@ -15,7 +15,9 @@ public abstract class AbstractGame implements Game {
         var userAnswer = getUserAnswer(scanner);
         var correctAnswer = getCorrectAnswer();
         if (!correctAnswer.equals(userAnswer)) {
-            print(String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\n", userAnswer, correctAnswer));
+            printMessage(
+                    String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\n", userAnswer, correctAnswer)
+            );
             return false;
         }
         return true;
