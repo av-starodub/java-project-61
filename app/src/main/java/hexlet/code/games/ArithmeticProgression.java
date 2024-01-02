@@ -10,7 +10,7 @@ import static hexlet.code.util.MathOperationService.getRandomIntInRange;
  * A series of numbers is presented, forming an arithmetic progression.
  * One number is replaced by two dots. The player must determine this number.
  */
-public final class Progression extends AbstractGame {
+public final class ArithmeticProgression extends AbstractGame {
     private static final int MAX_PROGRESSION_LENGTH = 10;
     public static final int MAX_STEP_LENGTH = 9;
     private int missingNumber;

@@ -3,7 +3,7 @@ package hexlet.code.util;
 import java.math.BigInteger;
 
 import static hexlet.code.games.base.AbstractGame.MAX_VALUE;
-import static hexlet.code.games.Progression.MAX_STEP_LENGTH;
+import static hexlet.code.games.ArithmeticProgression.MAX_STEP_LENGTH;
 
 public final class MathOperationService {
     private MathOperationService() {
