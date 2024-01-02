@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.games.base.AbstractGame;
 import hexlet.code.util.SimpleCalculator;
 
 import java.util.List;

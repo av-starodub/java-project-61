@@ -3,7 +3,7 @@ package hexlet.code.util;
 import hexlet.code.games.Calculator;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
-import hexlet.code.games.Game;
+import hexlet.code.games.base.Game;
 import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 

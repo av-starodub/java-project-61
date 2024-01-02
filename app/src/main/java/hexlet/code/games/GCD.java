@@ -1,5 +1,7 @@
 package hexlet.code.games;
 
+import hexlet.code.games.base.AbstractGame;
+
 import static hexlet.code.util.MathOperationService.findGCD;
 import static hexlet.code.util.MathOperationService.getRandomIntInRange;
 
