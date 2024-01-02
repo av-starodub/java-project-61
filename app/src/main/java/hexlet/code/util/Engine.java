@@ -1,5 +1,9 @@
 package hexlet.code.util;
 
+import hexlet.code.exception.WrongChoiceException;
+import hexlet.code.factory.GameFactory;
+
+import java.util.Objects;
 import java.util.Scanner;
 
 import static hexlet.code.service.ConsoleGameService.getUserName;
@@ -15,9 +19,14 @@ public final class Engine {
     }
 
     public static void play(Scanner scanner, String userChoice) {
-        var game = GameFactory.create(userChoice);
-        int numberOfCorrect = 0;
+        var gameFactory = new GameFactory();
+        var game = gameFactory.create(userChoice);
 
+        if (Objects.isNull(game)) {
+            throw new WrongChoiceException("game not exist: " + userChoice);
+        }
+
+        int numberOfCorrect = 0;
         var userName = getUserName(scanner);
         sayHello(userName);
         printRules(game.getRules());

@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.exception.WrongChoiceException;
 import hexlet.code.util.Engine;
 
 import java.nio.charset.Charset;
@@ -7,7 +8,7 @@ import java.util.Scanner;
 
 import static hexlet.code.service.ConsoleGameService.getUserChoice;
 import static hexlet.code.service.ConsoleGameService.getUserName;
-import static hexlet.code.service.ConsoleGameService.print;
+import static hexlet.code.service.ConsoleGameService.exit;
 import static hexlet.code.service.ConsoleGameService.sayHello;
 import static hexlet.code.service.ConsoleGameService.showMenu;
 
@@ -18,8 +19,14 @@ public class App {
         var userChoice = getUserChoice(sc);
         switch (userChoice) {
             case "1" -> sayHello(getUserName(sc));
-            case "2", "3", "4", "5", "6" -> Engine.play(sc, userChoice);
-            default -> print("\n");
+            case "0" -> exit();
+            default -> {
+                try {
+                    Engine.play(sc, userChoice);
+                } catch (WrongChoiceException e) {
+                    exit();
+                }
+            }
         }
     }
 }

@@ -40,9 +40,14 @@ public final class ConsoleGameService {
         return sc.nextLine();
     }
 
+    public static void exit() {
+        System.out.print("\n");
+    }
+
     public static void printRules(String rules) {
         print(rules + "\n");
     }
+
     public static void print(String message) {
         System.out.print(message);
     }
