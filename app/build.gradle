@@ -9,8 +9,8 @@ plugins {
     id 'net.ltgt.errorprone' version '3.1.0'
 }
 
-sourceCompatibility = JavaVersion.VERSION_21
-targetCompatibility = JavaVersion.VERSION_21
+sourceCompatibility = JavaVersion.VERSION_20
+targetCompatibility = JavaVersion.VERSION_20
 
 group 'hexlet.code'
 version '1.0-SNAPSHOT'
@@ -21,7 +21,7 @@ repositories {
 
 
 compileJava {
-    options.release = 21
+    options.release = 20
 }
 
 run {
