@@ -4,7 +4,7 @@ import hexlet.code.games.base.Game;
 
 import java.util.Scanner;
 
-import static hexlet.code.util.Cli.greet;
+import static hexlet.code.cli.Cli.greet;
 
 public final class ConsoleGameService {
     private ConsoleGameService() {

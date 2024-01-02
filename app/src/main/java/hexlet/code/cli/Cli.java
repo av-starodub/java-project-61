@@ -1,4 +1,4 @@
-package hexlet.code.util;
+package hexlet.code.cli;
 
 public final class Cli {
     private Cli() {
