@@ -11,8 +11,8 @@
 
 ####Демонстрация:
 
-* [Калькулятор. Вычислить арифметические выражения.](https://asciinema.org/a/22V8P7PyouASTUtAORh5ghNfB)
-* [Прогрессия. Определить пропущенное число в последовательности.](https://asciinema.org/a/tJRvhVHVW0O7hjmDN90lweVSg) 
-* [Проверка на чётность](https://asciinema.org/a/rYZEi1BVbc7BX9ygAesuZNvNs).
-* [Наибольший общий делитель](https://asciinema.org/a/oUU46V1PTZKo7l4ae901HOlVb).
-* [Простое ли число?](https://asciinema.org/a/qayzlQnCBKqc8BWsz9hKinGiO)
+* [Калькулятор. Вычислить арифметические выражения.](https://asciinema.org/a/DO6KYzZBOKUsqZd72hhwB9McD)
+* [Прогрессия. Определить пропущенное число в последовательности.](https://asciinema.org/a/ZOgg8m6p7J06wFBpmfbqWsyvz) 
+* [Проверка на чётность.](https://asciinema.org/a/G9AN6HGjLPdi5z4Jqvq4dx2N5)
+* [Наибольший общий делитель.](https://asciinema.org/a/uNu8QJMl4hixDPXcIYIr0giun)
+* [Простое ли число?](https://asciinema.org/a/0XFM9J3rC253eWY9AsDNvHtAH)
