@@ -1,7 +1,10 @@
-package hexlet.code.math;
+package hexlet.code.math.operations;
 
-public final class MathOperationService {
-    private MathOperationService() {
+/**
+ * The class calculates the greatest common divisor of given numbers.
+ */
+public final class GCD {
+    private GCD() {
     }
 
     public static int findGCD(int firstNumber, int secondNumber) {
