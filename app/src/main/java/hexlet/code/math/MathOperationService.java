@@ -1,7 +1,5 @@
 package hexlet.code.math;
 
-import java.math.BigInteger;
-
 import static hexlet.code.games.base.AbstractGame.MAX_VALUE;
 import static hexlet.code.games.ArithmeticProgression.MAX_STEP_LENGTH;
 
@@ -24,10 +22,6 @@ public final class MathOperationService {
         return reminder == 0 ? secondNumber : findGCD(secondNumber, reminder);
     }
 
-    public static boolean isEven(int number) {
-        return number % 2 == 0;
-    }
-
     public static int[] getRandomArithmeticProgression(int length) {
         int[] progression = new int[length];
         int step = getRandomIntInRange(1, MAX_STEP_LENGTH);
@@ -37,9 +31,5 @@ public final class MathOperationService {
             next += step;
         }
         return progression;
-    }
-
-    public static boolean isPrime(int number) {
-        return BigInteger.valueOf(number).isProbablePrime((int) Math.log(number));
     }
 }

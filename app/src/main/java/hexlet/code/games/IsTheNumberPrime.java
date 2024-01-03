@@ -1,8 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.games.base.AbstractSimpleGame;
-
-import static hexlet.code.math.MathOperationService.isPrime;
+import hexlet.code.math.operations.CheckOperationType;
 
 /**
  * Game "Is the number prime?".
@@ -13,7 +12,7 @@ public final class IsTheNumberPrime extends AbstractSimpleGame {
 
     @Override
     protected boolean check(int randomNumber) {
-        return isPrime(randomNumber);
+        return CheckOperationType.IS_PRIME.check(randomNumber);
     }
 
     @Override

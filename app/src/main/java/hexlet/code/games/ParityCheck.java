@@ -1,8 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.games.base.AbstractSimpleGame;
-
-import static hexlet.code.math.MathOperationService.isEven;
+import hexlet.code.math.operations.CheckOperationType;
 
 /**
  * Game "Check for parity".
@@ -12,7 +11,7 @@ import static hexlet.code.math.MathOperationService.isEven;
 public final class ParityCheck extends AbstractSimpleGame {
     @Override
     protected boolean check(int randomNumber) {
-        return isEven(randomNumber);
+        return CheckOperationType.IS_EVEN.check(randomNumber);
     }
 
     @Override
