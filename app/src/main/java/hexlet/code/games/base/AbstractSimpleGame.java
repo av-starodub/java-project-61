@@ -1,6 +1,6 @@
 package hexlet.code.games.base;
 
-import static hexlet.code.math.MathOperationService.getRandomIntInRange;
+import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
 
 /**
  * A general class for simple games where the player is given

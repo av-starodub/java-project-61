@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.games.base.AbstractGame;
 
 import static hexlet.code.math.MathOperationService.findGCD;
-import static hexlet.code.math.MathOperationService.getRandomIntInRange;
+import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
 
 /**
  * Game "Greatest common divisor".

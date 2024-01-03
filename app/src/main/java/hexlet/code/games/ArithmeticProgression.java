@@ -2,8 +2,8 @@ package hexlet.code.games;
 
 import hexlet.code.games.base.AbstractGame;
 
-import static hexlet.code.math.MathOperationService.getRandomArithmeticProgression;
-import static hexlet.code.math.MathOperationService.getRandomIntInRange;
+import static hexlet.code.math.random.Randomizer.getRandomArithmeticProgression;
+import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
 
 /**
  * Game "Arithmetic progression".
@@ -17,10 +17,12 @@ public final class ArithmeticProgression extends AbstractGame {
 
     @Override
     protected String createQuestion() {
-        int[] progression = getRandomArithmeticProgression(MAX_PROGRESSION_LENGTH);
-        int randomIdx = getRandomIntInRange(0, MAX_PROGRESSION_LENGTH - 1);
+        int[] progression = getRandomArithmeticProgression(
+                MAX_PROGRESSION_LENGTH, AbstractGame.MAX_VALUE, MAX_STEP_LENGTH
+        );
+        var randomIdx = getRandomIntInRange(0, MAX_PROGRESSION_LENGTH - 1);
         missingNumber = progression[randomIdx];
-        StringBuilder question = new StringBuilder();
+        var question = new StringBuilder();
         for (int number : progression) {
             if (number == missingNumber) {
                 question.append(".. ");

@@ -5,7 +5,7 @@ import hexlet.code.math.BinaryCalculator;
 
 import java.util.List;
 
-import static hexlet.code.math.MathOperationService.getRandomIntInRange;
+import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
 
 /**
  * Game "Calculator".
