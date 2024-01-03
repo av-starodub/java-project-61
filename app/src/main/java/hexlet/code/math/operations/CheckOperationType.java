@@ -14,10 +14,11 @@ public enum CheckOperationType {
 
         @Override
         public boolean check(int number) {
-            var notEven = IS_EVEN.check(number);
-            var notDivisibleByThree = number % MIN_DIVISOR != 0;
-            var result = number >= 1 && notEven && notDivisibleByThree;
-            if (number > START_PRIME && result) {
+            var result = number >= 1;
+            if (IS_EVEN.check(number) || number % MIN_DIVISOR == 0) {
+                result = false;
+            }
+            if (number > START_PRIME) {
                 for (var divisor = START_PRIME; divisor < Math.sqrt(number); divisor += STEP) {
                     if (number % divisor == 0 || number % (divisor + 2) == 0) {
                         result = false;
