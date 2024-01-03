@@ -1,7 +1,5 @@
 package hexlet.code.math.operations;
 
-import java.util.stream.IntStream;
-
 public enum CheckOperationType {
     IS_EVEN {
         @Override
@@ -12,10 +10,18 @@ public enum CheckOperationType {
     IS_PRIME {
         @Override
         public boolean check(int number) {
-            if (number > 1) {
-                return IntStream.range(2, (int) Math.sqrt(number)).noneMatch(divisor -> number % divisor == 0);
+            var notEven = number % 2 != 0;
+            var notDivisibleByThree = number % 3 != 0;
+            var result = number >= 1 && notEven && notDivisibleByThree;
+            if (number > 7 && result) {
+                for (var divisor = 5; divisor < Math.sqrt(number); divisor += 6) {
+                    if (number % divisor == 0 || number % (divisor + 2) == 0) {
+                        result = false;
+                        break;
+                    }
+                }
             }
-            return false;
+            return result;
         }
     };
 
