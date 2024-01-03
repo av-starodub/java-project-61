@@ -8,6 +8,12 @@ import static hexlet.code.service.ConsoleGameService.askUser;
 import static hexlet.code.service.ConsoleGameService.getUserAnswer;
 import static hexlet.code.service.ConsoleGameService.printMessage;
 
+/**
+ * A general class for games.
+ * Adding a new game:
+ * after implementing this abstraction, add a new game to the GameType enum,
+ * which is used by GameMenuProvider and GameSupplierProvider.
+ */
 public abstract class AbstractGame implements Game {
     public static final int MAX_VALUE = 100;
     private final Task task;
