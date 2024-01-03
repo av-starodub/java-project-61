@@ -1,6 +1,6 @@
 package hexlet.code.math.operations;
 
-import java.math.BigInteger;
+import java.util.stream.IntStream;
 
 public enum CheckOperationType {
     IS_EVEN {
@@ -12,7 +12,10 @@ public enum CheckOperationType {
     IS_PRIME {
         @Override
         public boolean check(int number) {
-            return BigInteger.valueOf(number).isProbablePrime((int) Math.log(number));
+            if (number > 1) {
+                return IntStream.range(2, (int) Math.sqrt(number)).noneMatch(divisor -> number % divisor == 0);
+            }
+            return false;
         }
     };
 
