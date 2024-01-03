@@ -39,20 +39,20 @@ public enum GameType {
         }
     };
 
-    private final int menuNumber;
-    private final String title;
+    private final int oderNumber;
+    private final String gameName;
 
-    GameType(int menuNumber, String title) {
-        this.menuNumber = menuNumber;
-        this.title = title;
+    GameType(int menuNumber, String menuTitle) {
+        oderNumber = menuNumber;
+        gameName = menuTitle;
     }
 
     public int getMenuNumber() {
-        return menuNumber;
+        return oderNumber;
     }
 
     public String getTitle() {
-        return title;
+        return gameName;
     }
 
     public abstract GameSupplier getGameSupplier();

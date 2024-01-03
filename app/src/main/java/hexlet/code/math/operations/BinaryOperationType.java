@@ -22,14 +22,14 @@ public enum BinaryOperationType {
         }
     };
 
-    private final String sign;
+    private final String operationSign;
 
     BinaryOperationType(String sign) {
-        this.sign = sign;
+        operationSign = sign;
     }
 
     public String getSign() {
-        return sign;
+        return operationSign;
     }
 
     public abstract BiFunction<Integer, Integer, Integer> getOperation();

@@ -18,8 +18,8 @@ public abstract class AbstractGame implements Game {
     public static final int MAX_VALUE = 100;
     private final Task task;
 
-    protected AbstractGame(Task task) {
-        this.task = task;
+    protected AbstractGame(Task tsk) {
+        task = tsk;
     }
 
     @Override
