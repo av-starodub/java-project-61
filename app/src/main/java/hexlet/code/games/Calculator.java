@@ -2,8 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.games.base.AbstractGame;
 import hexlet.code.math.BinaryCalculator;
-
-import java.util.List;
+import hexlet.code.task.Task;
 
 import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
 
@@ -13,32 +12,25 @@ import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
  * which must be calculated and the correct answer written down.
  */
 public final class Calculator extends AbstractGame {
-    private int firstRandomOperand;
-    private int secondRandomOperand;
-    private String randomOperator;
-    private final BinaryCalculator calc;
-    private final List<String> compatibleOperations;
 
     public Calculator() {
-        calc = new BinaryCalculator();
-        compatibleOperations = calc.getAllOperations();
+        super(createTask());
+    }
+
+    private static Task createTask() {
+        var calc = new BinaryCalculator();
+        var compatibleOperations = calc.getAllOperations();
+        var firstRandomOperand = getRandomIntInRange(1, MAX_VALUE);
+        var secondRandomOperand = getRandomIntInRange(1, MAX_VALUE);
+        var randomOperatorIndex = getRandomIntInRange(0, compatibleOperations.size() - 1);
+        var randomOperator = compatibleOperations.get(randomOperatorIndex);
+        var question = String.format("%d %s %d", firstRandomOperand, randomOperator, secondRandomOperand);
+        var answer = calc.calculate(firstRandomOperand, secondRandomOperand, randomOperator);
+        return new Task(question, String.valueOf(answer));
     }
 
     @Override
     protected String rules() {
         return "What is the result of the expression?.";
-    }
-
-    @Override
-    protected String createQuestion() {
-        firstRandomOperand = getRandomIntInRange(1, MAX_VALUE);
-        secondRandomOperand = getRandomIntInRange(1, MAX_VALUE);
-        randomOperator = compatibleOperations.get(getRandomIntInRange(0, compatibleOperations.size() - 1));
-        return String.format("%d %s %d", firstRandomOperand, randomOperator, secondRandomOperand);
-    }
-
-    @Override
-    protected String getCorrectAnswer() {
-        return String.valueOf(calc.calculate(firstRandomOperand, secondRandomOperand, randomOperator));
     }
 }

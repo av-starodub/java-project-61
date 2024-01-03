@@ -9,9 +9,8 @@ import hexlet.code.math.operations.CheckOperationType;
  * And he needs to answer 'yes' if the number is even, or 'no' if it is odd.
  */
 public final class ParityCheck extends AbstractSimpleGame {
-    @Override
-    protected boolean check(int randomNumber) {
-        return CheckOperationType.IS_EVEN.check(randomNumber);
+    public ParityCheck() {
+        super(CheckOperationType.IS_EVEN);
     }
 
     @Override

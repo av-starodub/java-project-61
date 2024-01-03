@@ -10,9 +10,8 @@ import hexlet.code.math.operations.CheckOperationType;
  */
 public final class IsTheNumberPrime extends AbstractSimpleGame {
 
-    @Override
-    protected boolean check(int randomNumber) {
-        return CheckOperationType.IS_PRIME.check(randomNumber);
+    public IsTheNumberPrime() {
+        super(CheckOperationType.IS_PRIME);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.games.base.AbstractGame;
+import hexlet.code.task.Task;
 
 import static hexlet.code.math.random.Randomizer.getRandomArithmeticProgression;
 import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
@@ -13,29 +14,28 @@ import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
 public final class ArithmeticProgression extends AbstractGame {
     private static final int MAX_PROGRESSION_LENGTH = 10;
     public static final int MAX_STEP_LENGTH = 9;
-    private int missingNumber;
 
-    @Override
-    protected String createQuestion() {
+    public ArithmeticProgression() {
+        super(createTask());
+    }
+
+    private static Task createTask() {
         int[] progression = getRandomArithmeticProgression(
                 MAX_PROGRESSION_LENGTH, AbstractGame.MAX_VALUE, MAX_STEP_LENGTH
         );
         var randomIdx = getRandomIntInRange(0, MAX_PROGRESSION_LENGTH - 1);
-        missingNumber = progression[randomIdx];
-        var question = new StringBuilder();
+        var missingNumber = progression[randomIdx];
+        var questionBuilder = new StringBuilder();
         for (int number : progression) {
             if (number == missingNumber) {
-                question.append(".. ");
+                questionBuilder.append(".. ");
             } else {
-                question.append(number).append(" ");
+                questionBuilder.append(number).append(" ");
             }
         }
-        return question.substring(0, question.length() - 1);
-    }
-
-    @Override
-    protected String getCorrectAnswer() {
-        return String.valueOf(missingNumber);
+        var question = questionBuilder.substring(0, questionBuilder.length() - 1);
+        var answer = String.valueOf(missingNumber);
+        return new Task(question, answer);
     }
 
     @Override

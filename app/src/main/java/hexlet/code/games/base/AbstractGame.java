@@ -1,5 +1,7 @@
 package hexlet.code.games.base;
 
+import hexlet.code.task.Task;
+
 import java.util.Scanner;
 
 import static hexlet.code.service.ConsoleGameService.askUser;
@@ -8,12 +10,18 @@ import static hexlet.code.service.ConsoleGameService.printMessage;
 
 public abstract class AbstractGame implements Game {
     public static final int MAX_VALUE = 100;
+    private final Task task;
+
+    protected AbstractGame(Task task) {
+        this.task = task;
+    }
+
     @Override
-    public final boolean doTask(Scanner scanner) {
-        var question = createQuestion();
+    public final boolean runTask(Scanner scanner) {
+        var question = task.getQuestion();
         askUser(question);
         var userAnswer = getUserAnswer(scanner);
-        var correctAnswer = getCorrectAnswer();
+        var correctAnswer = task.getAnswer();
         if (!correctAnswer.equals(userAnswer)) {
             printMessage(
                     String.format("'%s' is wrong answer ;(. Correct answer was '%s'.\n", userAnswer, correctAnswer)
@@ -29,8 +37,4 @@ public abstract class AbstractGame implements Game {
     }
 
     protected abstract String rules();
-
-    protected abstract String createQuestion();
-
-    protected abstract String getCorrectAnswer();
 }

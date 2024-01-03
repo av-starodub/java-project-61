@@ -1,5 +1,8 @@
 package hexlet.code.games.base;
 
+import hexlet.code.math.operations.CheckOperationType;
+import hexlet.code.task.Task;
+
 import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
 
 /**
@@ -7,18 +10,16 @@ import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
  * one random number and a problem with a yes or no answer.
  */
 public abstract class AbstractSimpleGame extends AbstractGame {
-    private int randomNumber;
 
-    @Override
-    protected final String createQuestion() {
-        randomNumber = getRandomIntInRange(0, MAX_VALUE);
-        return String.valueOf(randomNumber);
+    protected AbstractSimpleGame(CheckOperationType checkOperation) {
+        super(creatTask(checkOperation));
     }
 
-    @Override
-    protected final String getCorrectAnswer() {
-        return check(randomNumber) ? "yes" : "no";
+    private static Task creatTask(CheckOperationType checkOperation) {
+        var randomNumber = getRandomIntInRange(0, MAX_VALUE);
+        var isTrue = checkOperation.check(randomNumber);
+        var question = String.valueOf(randomNumber);
+        var answer = isTrue ? "yes" : "no";
+        return new Task(question, answer);
     }
-
-    protected abstract boolean check(int number);
 }

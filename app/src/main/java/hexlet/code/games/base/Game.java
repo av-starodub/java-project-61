@@ -3,7 +3,7 @@ package hexlet.code.games.base;
 import java.util.Scanner;
 
 public interface Game {
-    boolean doTask(Scanner scanner);
+    boolean runTask(Scanner scanner);
 
     String getRules();
 }

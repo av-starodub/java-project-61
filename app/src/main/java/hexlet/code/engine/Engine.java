@@ -36,7 +36,7 @@ public final class Engine {
             if (roundsCompleted == 0) {
                 printGameRules(game);
             }
-            if (!game.doTask(scanner)) {
+            if (!game.runTask(scanner)) {
                 sayToUser("Let's try again", userName);
                 return;
             }
