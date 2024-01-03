@@ -1,4 +1,4 @@
-package hexlet.code.math;
+package hexlet.code.math.calculator;
 
 import hexlet.code.math.operations.BinaryOperationType;
 

@@ -1,7 +1,7 @@
 package hexlet.code.core.games;
 
 import hexlet.code.core.games.base.AbstractGame;
-import hexlet.code.math.BinaryCalculator;
+import hexlet.code.math.calculator.BinaryCalculator;
 import hexlet.code.core.task.Task;
 
 import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
