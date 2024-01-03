@@ -1,7 +1,7 @@
 package hexlet.code.engine;
 
 import hexlet.code.exception.WrongChoiceException;
-import hexlet.code.factory.GameFactory;
+import hexlet.code.factory.GameSupplierFactory;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -19,25 +19,30 @@ public final class Engine {
     }
 
     public static void play(Scanner scanner, String userChoice) {
-        var gameFactory = new GameFactory();
-        var game = gameFactory.create(userChoice);
+        var gameSupplierFactory = new GameSupplierFactory();
+        var gameSupplier = gameSupplierFactory.getGameSupplier(userChoice);
 
-        if (Objects.isNull(game)) {
+        if (Objects.isNull(gameSupplier)) {
             throw new WrongChoiceException("game not exist: " + userChoice);
         }
 
-        int numberOfCorrect = 0;
+        var correctAnswers = 0;
+        var roundsCompleted = 0;
         var userName = getUserName(scanner);
         sayHello(userName);
-        printGameRules(game);
 
-        while (numberOfCorrect < NEEDED_TO_WIN) {
+        while (correctAnswers < NEEDED_TO_WIN) {
+            var game = gameSupplier.create();
+            if (roundsCompleted == 0) {
+                printGameRules(game);
+            }
             if (!game.doTask(scanner)) {
                 sayToUser("Let's try again", userName);
                 return;
             }
             printMessage("Correct!\n");
-            numberOfCorrect++;
+            correctAnswers++;
+            roundsCompleted++;
         }
         sayToUser("Congratulations", userName);
     }
