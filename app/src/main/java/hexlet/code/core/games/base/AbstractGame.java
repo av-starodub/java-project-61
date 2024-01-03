@@ -1,6 +1,6 @@
-package hexlet.code.games.base;
+package hexlet.code.core.games.base;
 
-import hexlet.code.task.Task;
+import hexlet.code.core.task.Task;
 
 import java.util.Scanner;
 

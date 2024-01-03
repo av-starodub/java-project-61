@@ -1,7 +1,7 @@
-package hexlet.code.engine;
+package hexlet.code.core.engine;
 
 import hexlet.code.exception.WrongChoiceException;
-import hexlet.code.factory.GameSupplierFactory;
+import hexlet.code.service.GameSupplierProvider;
 
 import java.util.Objects;
 import java.util.Scanner;
@@ -19,7 +19,7 @@ public final class Engine {
     }
 
     public static void play(Scanner scanner, String userChoice) {
-        var gameSupplierFactory = new GameSupplierFactory();
+        var gameSupplierFactory = new GameSupplierProvider();
         var gameSupplier = gameSupplierFactory.getGameSupplier(userChoice);
 
         if (Objects.isNull(gameSupplier)) {

@@ -1,8 +1,8 @@
-package hexlet.code.games;
+package hexlet.code.core.games;
 
-import hexlet.code.games.base.AbstractGame;
+import hexlet.code.core.games.base.AbstractGame;
 import hexlet.code.math.BinaryCalculator;
-import hexlet.code.task.Task;
+import hexlet.code.core.task.Task;
 
 import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
 

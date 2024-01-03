@@ -1,6 +1,6 @@
-package hexlet.code.supplier;
+package hexlet.code.core.supplier;
 
-import hexlet.code.games.base.Game;
+import hexlet.code.core.games.base.Game;
 
 @FunctionalInterface
 public interface GameSupplier {

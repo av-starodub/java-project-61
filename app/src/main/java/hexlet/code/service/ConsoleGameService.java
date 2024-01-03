@@ -1,6 +1,6 @@
 package hexlet.code.service;
 
-import hexlet.code.games.base.Game;
+import hexlet.code.core.games.base.Game;
 
 import java.util.Scanner;
 

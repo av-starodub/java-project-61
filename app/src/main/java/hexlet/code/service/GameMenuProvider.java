@@ -1,6 +1,6 @@
 package hexlet.code.service;
 
-import hexlet.code.types.GameType;
+import hexlet.code.core.types.GameType;
 
 import java.util.Arrays;
 import java.util.Comparator;

@@ -1,7 +1,7 @@
-package hexlet.code.games.base;
+package hexlet.code.core.games.base;
 
 import hexlet.code.math.operations.CheckOperationType;
-import hexlet.code.task.Task;
+import hexlet.code.core.task.Task;
 
 import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
 

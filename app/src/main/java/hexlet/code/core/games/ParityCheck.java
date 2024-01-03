@@ -1,6 +1,6 @@
-package hexlet.code.games;
+package hexlet.code.core.games;
 
-import hexlet.code.games.base.AbstractSimpleGame;
+import hexlet.code.core.games.base.AbstractSimpleGame;
 import hexlet.code.math.operations.CheckOperationType;
 
 /**
