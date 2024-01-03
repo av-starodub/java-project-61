@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.games.base.AbstractGame;
-import hexlet.code.math.SimpleCalculator;
+import hexlet.code.math.BinaryCalculator;
 
 import java.util.List;
 
@@ -16,11 +16,11 @@ public final class Calculator extends AbstractGame {
     private int firstRandomOperand;
     private int secondRandomOperand;
     private String randomOperator;
-    private final SimpleCalculator calc;
+    private final BinaryCalculator calc;
     private final List<String> compatibleOperations;
 
     public Calculator() {
-        calc = new SimpleCalculator();
+        calc = new BinaryCalculator();
         compatibleOperations = calc.getAllOperations();
     }
 

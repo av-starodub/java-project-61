@@ -1,18 +1,20 @@
 package hexlet.code.math;
 
+import hexlet.code.math.operations.BinaryOperationType;
+
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
 
-public final class SimpleCalculator {
+public final class BinaryCalculator {
     private final Map<String, BiFunction<Integer, Integer, Integer>> operations;
 
-    public SimpleCalculator() {
+    public BinaryCalculator() {
         operations = new HashMap<>();
-        operations.put("*", (a, b) -> a * b);
-        operations.put("+", Integer::sum);
-        operations.put("-", (a, b) -> a - b);
+        Arrays.stream(BinaryOperationType.values())
+                .forEach(type -> operations.put(type.getSign(), type.getOperation()));
     }
 
     public int calculate(int firstNumber, int secondNumber, String operator) {
