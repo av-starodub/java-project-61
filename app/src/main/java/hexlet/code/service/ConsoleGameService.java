@@ -1,10 +1,9 @@
 package hexlet.code.service;
 
+import hexlet.code.App;
 import hexlet.code.core.games.base.Game;
 
 import java.util.Scanner;
-
-import static hexlet.code.cli.Cli.greet;
 
 public final class ConsoleGameService {
     private ConsoleGameService() {
@@ -28,8 +27,7 @@ public final class ConsoleGameService {
     }
 
     public static String getUserName(Scanner scanner) {
-        printMessage(greet());
-        printMessage("May I have your name? ");
+        printMessage(App.GREETINGS);
         return scanner.nextLine();
     }
 
