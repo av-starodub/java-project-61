@@ -9,17 +9,8 @@ public final class ConsoleGameService {
     private ConsoleGameService() {
     }
 
-    public static void showMenu() {
-        printMessage(GameMenuProvider.create());
-    }
-
     public static void sayHello(String name) {
         sayToUser("Hello", name);
-    }
-
-    public static String getUserChoice(Scanner scanner) {
-        printMessage("Your choice: ");
-        return scanner.nextLine();
     }
 
     public static void sayToUser(String message, String name) {
