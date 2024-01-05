@@ -1,4 +1,4 @@
-package hexlet.code.core.task;
+package hexlet.code.task;
 
 public final class Task {
     private final String question;

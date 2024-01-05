@@ -1,9 +1,9 @@
-package hexlet.code.core.games;
+package hexlet.code.games;
 
-import hexlet.code.core.games.base.AbstractGame;
-import hexlet.code.core.task.Task;
+import hexlet.code.games.base.AbstractGame;
+import hexlet.code.task.Task;
 
-import static hexlet.code.math.operations.GCD.findGCD;
+import static hexlet.code.math.gcd.GCD.findGCD;
 import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
 
 /**
@@ -13,20 +13,15 @@ import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
  */
 public final class GreatestCommonDivisor extends AbstractGame {
 
-    public GreatestCommonDivisor() {
-        super(createTask());
+    public static void run() {
+        run(GreatestCommonDivisor::task, "Find the greatest common divisor of given numbers.");
     }
 
-    private static Task createTask() {
+    private static Task task() {
         var firstRandomNumber = getRandomIntInRange(1, MAX_VALUE);
         var secondRandomNumber = getRandomIntInRange(1, MAX_VALUE);
         var question = String.format("%d %d", firstRandomNumber, secondRandomNumber);
         var answer = findGCD(firstRandomNumber, secondRandomNumber);
         return new Task(question, String.valueOf(answer));
-    }
-
-    @Override
-    protected String rules() {
-        return "Find the greatest common divisor of given numbers.";
     }
 }

@@ -1,32 +1,33 @@
 package hexlet.code;
 
-import hexlet.code.exception.WrongChoiceException;
-import hexlet.code.core.engine.Engine;
+import hexlet.code.games.ArithmeticProgression;
+import hexlet.code.games.Calculator;
+import hexlet.code.games.GreatestCommonDivisor;
+import hexlet.code.games.ParityCheck;
+import hexlet.code.games.IsTheNumberPrime;
 
 import java.nio.charset.Charset;
 import java.util.Scanner;
 
-import static hexlet.code.service.ConsoleGameService.exit;
-
 public class App {
+    public static final int TOTAL_ROUNDS = 3;
+
     public static final String GREETINGS = """
             Welcome to the Brain Games!
             May I have your name?\s""";
 
     public static void main(String[] args) {
         showMenu();
-        var sc = new Scanner(System.in, Charset.defaultCharset());
-        var userChoice = sc.nextLine();
+        var scanner = new Scanner(System.in, Charset.defaultCharset());
+        var userChoice = scanner.nextLine();
         switch (userChoice) {
             case "1" -> Cli.greet();
-            case "0" -> exit();
-            default -> {
-                try {
-                    Engine.play(sc, userChoice);
-                } catch (WrongChoiceException e) {
-                    exit();
-                }
-            }
+            case "2" -> ParityCheck.run();
+            case "3" -> Calculator.run();
+            case "4" -> GreatestCommonDivisor.run();
+            case "5" -> ArithmeticProgression.run();
+            case "6" -> IsTheNumberPrime.run();
+            default -> exit();
         }
     }
 
@@ -41,5 +42,9 @@ public class App {
                 6 - Prime
                 0 - Exit
                 Your choice:\s""");
+    }
+
+    private static void exit() {
+        System.out.println();
     }
 }

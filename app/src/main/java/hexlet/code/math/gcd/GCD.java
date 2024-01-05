@@ -1,4 +1,4 @@
-package hexlet.code.math.operations;
+package hexlet.code.math.gcd;
 
 /**
  * The class calculates the greatest common divisor of given numbers.

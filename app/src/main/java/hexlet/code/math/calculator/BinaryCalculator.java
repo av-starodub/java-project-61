@@ -1,7 +1,5 @@
 package hexlet.code.math.calculator;
 
-import hexlet.code.math.operations.BinaryOperationType;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -24,4 +22,38 @@ public final class BinaryCalculator {
     public List<String> getAllOperations() {
         return List.copyOf(operations.keySet());
     }
+
+    private enum BinaryOperationType {
+        ADDITION("+") {
+            @Override
+            public BiFunction<Integer, Integer, Integer> getOperation() {
+                return Integer::sum;
+            }
+        },
+        SUBTRACTION("-") {
+            @Override
+            public BiFunction<Integer, Integer, Integer> getOperation() {
+                return (a, b) -> a - b;
+            }
+        },
+        TIMES("*") {
+            @Override
+            public BiFunction<Integer, Integer, Integer> getOperation() {
+                return (a, b) -> a * b;
+            }
+        };
+
+        private final String operationSign;
+
+        BinaryOperationType(String sign) {
+            operationSign = sign;
+        }
+
+        public String getSign() {
+            return operationSign;
+        }
+
+        public abstract BiFunction<Integer, Integer, Integer> getOperation();
+    }
+
 }

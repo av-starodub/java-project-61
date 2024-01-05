@@ -1,7 +1,7 @@
-package hexlet.code.core.games;
+package hexlet.code.games;
 
-import hexlet.code.core.games.base.AbstractGame;
-import hexlet.code.core.task.Task;
+import hexlet.code.games.base.AbstractGame;
+import hexlet.code.task.Task;
 
 import static hexlet.code.math.random.Randomizer.getRandomArithmeticProgression;
 import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
@@ -15,11 +15,11 @@ public final class ArithmeticProgression extends AbstractGame {
     private static final int MAX_PROGRESSION_LENGTH = 10;
     public static final int MAX_STEP_LENGTH = 9;
 
-    public ArithmeticProgression() {
-        super(createTask());
+    public static void run() {
+        run(ArithmeticProgression::task, "What number is missing in the progression?");
     }
 
-    private static Task createTask() {
+    private static Task task() {
         int[] progression = getRandomArithmeticProgression(
                 MAX_PROGRESSION_LENGTH, AbstractGame.MAX_VALUE, MAX_STEP_LENGTH
         );
@@ -36,10 +36,5 @@ public final class ArithmeticProgression extends AbstractGame {
         var question = questionBuilder.substring(0, questionBuilder.length() - 1);
         var answer = String.valueOf(missingNumber);
         return new Task(question, answer);
-    }
-
-    @Override
-    protected String rules() {
-        return "What number is missing in the progression?";
     }
 }
