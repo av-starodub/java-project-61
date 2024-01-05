@@ -10,8 +10,7 @@ import java.nio.charset.Charset;
 import java.util.Scanner;
 
 public class App {
-    public static final int TOTAL_ROUNDS = 3;
-
+    public static final int ROUNDS_DEFAULT = 3;
     public static final String GREETINGS = """
             Welcome to the Brain Games!
             May I have your name?\s""";

@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.games.base.AbstractGame;
+import hexlet.code.games.base.AbstractBaseGame;
 import hexlet.code.math.calculator.BinaryCalculator;
 import hexlet.code.task.Task;
 
@@ -11,7 +11,7 @@ import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
  * The user is shown a random mathematical expression, such as 35 + 16,
  * which must be calculated and the correct answer written down.
  */
-public final class Calculator extends AbstractGame {
+public final class Calculator extends AbstractBaseGame {
 
     public static void run() {
         run(Calculator::task, "What is the result of the expression?.");
