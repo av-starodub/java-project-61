@@ -1,5 +1,6 @@
 package hexlet.code.core.games;
 
+import hexlet.code.core.games.base.AbstractBaseGame;
 import hexlet.code.core.games.base.AbstractTrueFalseGame;
 
 /**
@@ -11,6 +12,10 @@ public final class ParityCheck extends AbstractTrueFalseGame {
     private static final String GAME_DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void run(String playerName) {
-        run(() -> task(number -> number % 2 == 0), GAME_DESCRIPTION, playerName);
+        AbstractBaseGame.run(() -> AbstractTrueFalseGame.task(ParityCheck::isEven), GAME_DESCRIPTION, playerName);
+    }
+
+    private static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }

@@ -4,8 +4,6 @@ import hexlet.code.core.task.Task;
 
 import java.util.function.Predicate;
 
-import static hexlet.code.math.Randomizer.getRandomIntInRange;
-
 /**
  * A general class for simple games where the player is given
  * one random number and a problem with a yes or no answer.

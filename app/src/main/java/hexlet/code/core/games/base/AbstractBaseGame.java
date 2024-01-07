@@ -12,16 +12,20 @@ import java.util.ArrayList;
 public abstract class AbstractBaseGame {
     public static final int MAX_VALUE = 100;
 
-    protected static void run(TaskCreator taskCreator, String rules, String playerName) {
+    protected static void run(TaskCreator taskCreator, String gameDescription, String playerName) {
         var tasks = new ArrayList<Task>();
         for (var idx = 0; idx < App.ROUNDS_DEFAULT; idx++) {
             tasks.add(taskCreator.create());
         }
-        Engine.play(tasks, rules, playerName);
+        Engine.play(tasks, gameDescription, playerName);
     }
 
     @FunctionalInterface
     protected interface TaskCreator {
         Task create();
+    }
+
+    protected static int getRandomIntInRange(int min, int max) {
+        return (int) (Math.random() * (max - min + 1)) + min;
     }
 }

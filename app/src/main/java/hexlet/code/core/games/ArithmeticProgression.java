@@ -3,9 +3,6 @@ package hexlet.code.core.games;
 import hexlet.code.core.games.base.AbstractBaseGame;
 import hexlet.code.core.task.Task;
 
-import static hexlet.code.math.Randomizer.getRandomArithmeticProgression;
-import static hexlet.code.math.Randomizer.getRandomIntInRange;
-
 /**
  * Game "Arithmetic progression".
  * A series of numbers is presented, forming an arithmetic progression.
@@ -17,12 +14,11 @@ public final class ArithmeticProgression extends AbstractBaseGame {
     private static final int MAX_STEP_LENGTH = 9;
 
     public static void run(String playerName) {
-        run(ArithmeticProgression::task, GAME_DESCRIPTION, playerName);
+        AbstractBaseGame.run(ArithmeticProgression::task, GAME_DESCRIPTION, playerName);
     }
 
     private static Task task() {
         int[] progression = getRandomArithmeticProgression(
-                MAX_PROGRESSION_LENGTH, AbstractBaseGame.MAX_VALUE, MAX_STEP_LENGTH
         );
         var randomIdx = getRandomIntInRange(0, MAX_PROGRESSION_LENGTH - 1);
         var missingNumber = progression[randomIdx];
@@ -38,4 +34,16 @@ public final class ArithmeticProgression extends AbstractBaseGame {
         var answer = String.valueOf(missingNumber);
         return new Task(question, answer);
     }
+
+    private static int[] getRandomArithmeticProgression() {
+        int[] progression = new int[MAX_PROGRESSION_LENGTH];
+        int step = getRandomIntInRange(1, MAX_STEP_LENGTH);
+        int next = getRandomIntInRange(1, AbstractBaseGame.MAX_VALUE);
+        for (var idx = 0; idx < MAX_PROGRESSION_LENGTH; idx++) {
+            progression[idx] = next;
+            next += step;
+        }
+        return progression;
+    }
+
 }

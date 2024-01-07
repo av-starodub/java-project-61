@@ -2,9 +2,8 @@ package hexlet.code.core.games;
 
 import hexlet.code.core.task.Task;
 import hexlet.code.core.games.base.AbstractBaseGame;
-import hexlet.code.math.BinaryCalculator;
 
-import static hexlet.code.math.Randomizer.getRandomIntInRange;
+import java.util.function.BiFunction;
 
 /**
  * Game "Calculator".
@@ -15,18 +14,58 @@ public final class Calculator extends AbstractBaseGame {
     private static final String GAME_DESCRIPTION = "What is the result of the expression?";
 
     public static void run(String playerName) {
-        run(Calculator::task, GAME_DESCRIPTION, playerName);
+        AbstractBaseGame.run(Calculator::task, GAME_DESCRIPTION, playerName);
     }
 
     private static Task task() {
-        var calc = new BinaryCalculator();
-        var compatibleOperations = calc.getAllOperations();
+        var supportedOperations = BinaryOperationType.values();
         var firstRandomOperand = getRandomIntInRange(1, MAX_VALUE);
         var secondRandomOperand = getRandomIntInRange(1, MAX_VALUE);
-        var randomOperatorIndex = getRandomIntInRange(0, compatibleOperations.size() - 1);
-        var randomOperator = compatibleOperations.get(randomOperatorIndex);
-        var question = String.format("%d %s %d", firstRandomOperand, randomOperator, secondRandomOperand);
-        var answer = calc.calculate(firstRandomOperand, secondRandomOperand, randomOperator);
+        var randomOperationIndex = getRandomIntInRange(0, supportedOperations.length - 1);
+        var operation = supportedOperations[randomOperationIndex];
+        var operationSign = operation.getSign();
+        var question = String.format("%d %s %d", firstRandomOperand, operationSign, secondRandomOperand);
+        var answer = operation.calculate(firstRandomOperand, secondRandomOperand);
         return new Task(question, String.valueOf(answer));
+    }
+
+    /**
+     * Supported math binary operations.
+     */
+    private enum BinaryOperationType {
+        ADDITION("+") {
+            @Override
+            BiFunction<Integer, Integer, Integer> getOperation() {
+                return Integer::sum;
+            }
+        },
+        SUBTRACTION("-") {
+            @Override
+            BiFunction<Integer, Integer, Integer> getOperation() {
+                return (a, b) -> a - b;
+            }
+        },
+        TIMES("*") {
+            @Override
+            BiFunction<Integer, Integer, Integer> getOperation() {
+                return (a, b) -> a * b;
+            }
+        };
+
+        private final String operationSign;
+
+        BinaryOperationType(String sign) {
+            operationSign = sign;
+        }
+
+        private String getSign() {
+            return operationSign;
+        }
+
+        private int calculate(int firstOperand, int secondOperand) {
+            return getOperation().apply(firstOperand, secondOperand);
+        }
+
+        abstract BiFunction<Integer, Integer, Integer> getOperation();
     }
 }
