@@ -1,4 +1,4 @@
-package hexlet.code.math.random;
+package hexlet.code.math;
 
 public final class Randomizer {
     private Randomizer() {

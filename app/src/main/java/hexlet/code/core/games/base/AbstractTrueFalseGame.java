@@ -1,10 +1,10 @@
-package hexlet.code.games.base;
+package hexlet.code.core.games.base;
 
-import hexlet.code.task.Task;
+import hexlet.code.core.task.Task;
 
 import java.util.function.Predicate;
 
-import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
+import static hexlet.code.math.Randomizer.getRandomIntInRange;
 
 /**
  * A general class for simple games where the player is given

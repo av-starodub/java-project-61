@@ -1,6 +1,6 @@
-package hexlet.code.games;
+package hexlet.code.core.games;
 
-import hexlet.code.games.base.AbstractTrueFalseGame;
+import hexlet.code.core.games.base.AbstractTrueFalseGame;
 
 /**
  * Game "Check for parity".

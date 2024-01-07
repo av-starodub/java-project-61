@@ -1,8 +1,8 @@
-package hexlet.code.games.base;
+package hexlet.code.core.games.base;
 
 import hexlet.code.App;
+import hexlet.code.core.task.Task;
 import hexlet.code.engine.Engine;
-import hexlet.code.task.Task;
 
 import java.util.ArrayList;
 

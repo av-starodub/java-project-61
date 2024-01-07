@@ -1,4 +1,4 @@
-package hexlet.code.math.isprime;
+package hexlet.code.math;
 
 public class Prime {
     private static final int MIN_DIVISOR = 3;

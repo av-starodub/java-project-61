@@ -1,7 +1,7 @@
 package hexlet.code.engine;
 
 import hexlet.code.App;
-import hexlet.code.task.Task;
+import hexlet.code.core.task.Task;
 
 import java.nio.charset.Charset;
 import java.util.List;

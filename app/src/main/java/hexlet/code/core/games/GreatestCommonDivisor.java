@@ -1,10 +1,10 @@
-package hexlet.code.games;
+package hexlet.code.core.games;
 
-import hexlet.code.games.base.AbstractBaseGame;
-import hexlet.code.task.Task;
+import hexlet.code.core.games.base.AbstractBaseGame;
+import hexlet.code.core.task.Task;
 
-import static hexlet.code.math.gcd.GCD.findGCD;
-import static hexlet.code.math.random.Randomizer.getRandomIntInRange;
+import static hexlet.code.math.GCD.findGCD;
+import static hexlet.code.math.Randomizer.getRandomIntInRange;
 
 /**
  * Game "Greatest common divisor".
