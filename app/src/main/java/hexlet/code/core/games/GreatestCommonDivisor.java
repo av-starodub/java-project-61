@@ -13,8 +13,8 @@ import static hexlet.code.math.Randomizer.getRandomIntInRange;
  */
 public final class GreatestCommonDivisor extends AbstractBaseGame {
 
-    public static void run() {
-        run(GreatestCommonDivisor::task, "Find the greatest common divisor of given numbers.");
+    public static void run(String playerName) {
+        run(GreatestCommonDivisor::task, "Find the greatest common divisor of given numbers.", playerName);
     }
 
     private static Task task() {

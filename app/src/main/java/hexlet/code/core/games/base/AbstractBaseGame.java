@@ -12,12 +12,12 @@ import java.util.ArrayList;
 public abstract class AbstractBaseGame {
     public static final int MAX_VALUE = 100;
 
-    protected static void run(TaskCreator taskCreator, String rules) {
+    protected static void run(TaskCreator taskCreator, String rules, String playerName) {
         var tasks = new ArrayList<Task>();
         for (var idx = 0; idx < App.ROUNDS_DEFAULT; idx++) {
             tasks.add(taskCreator.create());
         }
-        Engine.play(tasks, rules);
+        Engine.play(tasks, rules, playerName);
     }
 
     @FunctionalInterface

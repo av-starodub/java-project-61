@@ -15,8 +15,8 @@ public final class ArithmeticProgression extends AbstractBaseGame {
     private static final int MAX_PROGRESSION_LENGTH = 10;
     private static final int MAX_STEP_LENGTH = 9;
 
-    public static void run() {
-        run(ArithmeticProgression::task, "What number is missing in the progression?");
+    public static void run(String playerName) {
+        run(ArithmeticProgression::task, "What number is missing in the progression?", playerName);
     }
 
     private static Task task() {

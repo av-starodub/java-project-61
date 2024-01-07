@@ -13,8 +13,8 @@ import static hexlet.code.math.Randomizer.getRandomIntInRange;
  */
 public final class Calculator extends AbstractBaseGame {
 
-    public static void run() {
-        run(Calculator::task, "What is the result of the expression?.");
+    public static void run(String playerName) {
+        run(Calculator::task, "What is the result of the expression?.", playerName);
     }
 
     private static Task task() {

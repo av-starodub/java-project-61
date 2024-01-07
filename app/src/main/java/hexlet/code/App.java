@@ -17,16 +17,17 @@ public class App {
 
     public static void main(String[] args) {
         showMenu();
-        var scanner = new Scanner(System.in, Charset.defaultCharset());
-        var userChoice = scanner.nextLine();
-        switch (userChoice) {
-            case "1" -> Cli.greet();
-            case "2" -> ParityCheck.run();
-            case "3" -> Calculator.run();
-            case "4" -> GreatestCommonDivisor.run();
-            case "5" -> ArithmeticProgression.run();
-            case "6" -> IsTheNumberPrime.run();
-            default -> exit();
+        try (var scanner = new Scanner(System.in, Charset.defaultCharset())) {
+            var userChoice = scanner.nextLine();
+            switch (userChoice) {
+                case "1" -> Cli.greet();
+                case "2" -> ParityCheck.run(getPlayerName(scanner));
+                case "3" -> Calculator.run(getPlayerName(scanner));
+                case "4" -> GreatestCommonDivisor.run(getPlayerName(scanner));
+                case "5" -> ArithmeticProgression.run(getPlayerName(scanner));
+                case "6" -> IsTheNumberPrime.run(getPlayerName(scanner));
+                default -> exit();
+            }
         }
     }
 
@@ -41,6 +42,11 @@ public class App {
                 6 - Prime
                 0 - Exit
                 Your choice:\s""");
+    }
+
+    private static String getPlayerName(Scanner scanner) {
+        System.out.print(GREETINGS);
+        return scanner.nextLine();
     }
 
     private static void exit() {

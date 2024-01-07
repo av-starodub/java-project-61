@@ -9,7 +9,10 @@ import hexlet.code.core.games.base.AbstractTrueFalseGame;
  */
 public final class ParityCheck extends AbstractTrueFalseGame {
 
-    public static void run() {
-        run(() -> task(number -> number % 2 == 0), "Answer 'yes' if the number is even, otherwise answer 'no'.");
+    public static void run(String playerName) {
+        run(() -> task(number -> number % 2 == 0),
+                "Answer 'yes' if the number is even, otherwise answer 'no'.",
+                playerName
+        );
     }
 }

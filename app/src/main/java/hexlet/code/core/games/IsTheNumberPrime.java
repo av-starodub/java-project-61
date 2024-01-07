@@ -10,7 +10,10 @@ import hexlet.code.math.Prime;
  */
 public final class IsTheNumberPrime extends AbstractTrueFalseGame {
 
-    public static void run() {
-        run(() -> task(Prime::isPrime), "Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    public static void run(String playerName) {
+        run(() -> task(Prime::isPrime),
+                "Answer 'yes' if given number is prime. Otherwise answer 'no'.",
+                playerName
+        );
     }
 }

@@ -1,6 +1,5 @@
 package hexlet.code.engine;
 
-import hexlet.code.App;
 import hexlet.code.core.task.Task;
 
 import java.nio.charset.Charset;
@@ -12,11 +11,8 @@ public final class Engine {
     private Engine() {
     }
 
-    public static void play(List<Task> tasks, String rules) {
+    public static void play(List<Task> tasks, String rules, String playerName) {
         try (var scanner = new Scanner(System.in, Charset.defaultCharset())) {
-            System.out.print(App.GREETINGS);
-            var userName = scanner.nextLine();
-            System.out.printf("Hello, %s!\n", userName);
             System.out.println(rules);
             for (var task : tasks) {
                 System.out.printf("Question: %s\nYour answer: ", task.getQuestion());
@@ -27,13 +23,13 @@ public final class Engine {
                             "'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again %s\n",
                             userAnswer,
                             correctAnswer,
-                            userName
+                            playerName
                     );
                     return;
                 }
                 System.out.println("Correct!");
             }
-            System.out.printf("Congratulations, %s!\n", userName);
+            System.out.printf("Congratulations, %s!\n", playerName);
         }
     }
 }
