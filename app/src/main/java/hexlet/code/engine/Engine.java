@@ -11,9 +11,9 @@ public final class Engine {
     private Engine() {
     }
 
-    public static void play(List<Task> tasks, String rules, String playerName) {
+    public static void play(List<Task> tasks, String gameDescription, String playerName) {
         try (var scanner = new Scanner(System.in, Charset.defaultCharset())) {
-            System.out.println(rules);
+            System.out.println(gameDescription);
             for (var task : tasks) {
                 System.out.printf("Question: %s\nYour answer: ", task.getQuestion());
                 var userAnswer = scanner.nextLine();

@@ -12,9 +12,10 @@ import static hexlet.code.math.Randomizer.getRandomIntInRange;
  * which must be calculated and the correct answer written down.
  */
 public final class Calculator extends AbstractBaseGame {
+    private static final String GAME_DESCRIPTION = "What is the result of the expression?";
 
     public static void run(String playerName) {
-        run(Calculator::task, "What is the result of the expression?.", playerName);
+        run(Calculator::task, GAME_DESCRIPTION, playerName);
     }
 
     private static Task task() {

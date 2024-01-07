@@ -12,11 +12,12 @@ import static hexlet.code.math.Randomizer.getRandomIntInRange;
  * One number is replaced by two dots. The player must determine this number.
  */
 public final class ArithmeticProgression extends AbstractBaseGame {
+    private static final String GAME_DESCRIPTION = "What number is missing in the progression?";
     private static final int MAX_PROGRESSION_LENGTH = 10;
     private static final int MAX_STEP_LENGTH = 9;
 
     public static void run(String playerName) {
-        run(ArithmeticProgression::task, "What number is missing in the progression?", playerName);
+        run(ArithmeticProgression::task, GAME_DESCRIPTION, playerName);
     }
 
     private static Task task() {

@@ -12,9 +12,10 @@ import static hexlet.code.math.Randomizer.getRandomIntInRange;
  * The user must calculate and enter the greatest common divisor of these numbers.
  */
 public final class GreatestCommonDivisor extends AbstractBaseGame {
+    private static final String GAME_DESCRIPTION = "Find the greatest common divisor of given numbers.";
 
     public static void run(String playerName) {
-        run(GreatestCommonDivisor::task, "Find the greatest common divisor of given numbers.", playerName);
+        run(GreatestCommonDivisor::task, GAME_DESCRIPTION, playerName);
     }
 
     private static Task task() {

@@ -8,11 +8,9 @@ import hexlet.code.core.games.base.AbstractTrueFalseGame;
  * And he needs to answer 'yes' if the number is even, or 'no' if it is odd.
  */
 public final class ParityCheck extends AbstractTrueFalseGame {
+    private static final String GAME_DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void run(String playerName) {
-        run(() -> task(number -> number % 2 == 0),
-                "Answer 'yes' if the number is even, otherwise answer 'no'.",
-                playerName
-        );
+        run(() -> task(number -> number % 2 == 0), GAME_DESCRIPTION, playerName);
     }
 }
