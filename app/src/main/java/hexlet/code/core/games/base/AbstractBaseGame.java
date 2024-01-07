@@ -5,6 +5,7 @@ import hexlet.code.core.task.Task;
 import hexlet.code.engine.Engine;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A general class for games.
@@ -13,11 +14,16 @@ public abstract class AbstractBaseGame {
     public static final int MAX_VALUE = 100;
 
     protected static void run(TaskCreator taskCreator, String gameDescription, String playerName) {
+        var tasks = build(taskCreator);
+        Engine.play(tasks, gameDescription, playerName);
+    }
+
+    private static List<Task> build(TaskCreator taskCreator) {
         var tasks = new ArrayList<Task>();
         for (var idx = 0; idx < App.ROUNDS_DEFAULT; idx++) {
             tasks.add(taskCreator.create());
         }
-        Engine.play(tasks, gameDescription, playerName);
+        return tasks;
     }
 
     @FunctionalInterface
