@@ -32,7 +32,7 @@ public final class ArithmeticProgression extends AbstractBaseGame {
         }
         var question = questionBuilder.substring(0, questionBuilder.length() - 1);
         var answer = String.valueOf(missingNumber);
-        return new Task(question, answer);
+        return Task.of(question, answer);
     }
 
     private static int[] getRandomArithmeticProgression() {

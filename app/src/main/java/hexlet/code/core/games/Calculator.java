@@ -26,7 +26,7 @@ public final class Calculator extends AbstractBaseGame {
         var operationSign = operation.getSign();
         var question = String.format("%d %s %d", firstRandomOperand, operationSign, secondRandomOperand);
         var answer = operation.calculate(firstRandomOperand, secondRandomOperand);
-        return new Task(question, String.valueOf(answer));
+        return Task.of(question, String.valueOf(answer));
     }
 
     /**

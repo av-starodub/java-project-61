@@ -15,6 +15,6 @@ public abstract class AbstractTrueFalseGame extends AbstractBaseGame {
         var isTrue = check.test(randomNumber);
         var question = String.valueOf(randomNumber);
         var answer = isTrue ? "yes" : "no";
-        return new Task(question, answer);
+        return Task.of(question, answer);
     }
 }

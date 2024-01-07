@@ -20,7 +20,7 @@ public final class GreatestCommonDivisor extends AbstractBaseGame {
         var secondRandomNumber = getRandomIntInRange(1, MAX_VALUE);
         var question = String.format("%d %d", firstRandomNumber, secondRandomNumber);
         var answer = findGCD(firstRandomNumber, secondRandomNumber);
-        return new Task(question, String.valueOf(answer));
+        return Task.of(question, String.valueOf(answer));
     }
 
     public static int findGCD(int firstNumber, int secondNumber) {
