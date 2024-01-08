@@ -8,10 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A general class for games.
+ * A general class for all games.
  */
 public abstract class AbstractBaseGame {
-    public static final int MAX_VALUE = 100;
+    /**
+     * Default min integer value for task questions.
+     */
+    private static final int DEFAULT_MIN_VALUE = 1;
+    /**
+     * Default max integer value for task questions.
+     */
+    private static final int DEFAULT_MAX_VALUE = 100;
 
     protected static void run(TaskCreator taskCreator, String gameDescription, String playerName) {
         var tasks = build(taskCreator);
@@ -29,6 +36,10 @@ public abstract class AbstractBaseGame {
     @FunctionalInterface
     protected interface TaskCreator {
         Task create();
+    }
+
+    protected static int getRandomIntInDefaultRange() {
+        return getRandomIntInRange(DEFAULT_MIN_VALUE, DEFAULT_MAX_VALUE);
     }
 
     protected static int getRandomIntInRange(int min, int max) {

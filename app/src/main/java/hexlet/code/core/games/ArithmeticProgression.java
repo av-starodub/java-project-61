@@ -18,8 +18,7 @@ public final class ArithmeticProgression extends AbstractBaseGame {
     }
 
     private static Task task() {
-        int[] progression = getRandomArithmeticProgression(
-        );
+        int[] progression = getRandomArithmeticProgression();
         var randomIdx = getRandomIntInRange(0, MAX_PROGRESSION_LENGTH - 1);
         var missingNumber = progression[randomIdx];
         var questionBuilder = new StringBuilder();
@@ -38,7 +37,7 @@ public final class ArithmeticProgression extends AbstractBaseGame {
     private static int[] getRandomArithmeticProgression() {
         int[] progression = new int[MAX_PROGRESSION_LENGTH];
         int step = getRandomIntInRange(1, MAX_STEP_LENGTH);
-        int next = getRandomIntInRange(1, AbstractBaseGame.MAX_VALUE);
+        int next = getRandomIntInDefaultRange();
         for (var idx = 0; idx < MAX_PROGRESSION_LENGTH; idx++) {
             progression[idx] = next;
             next += step;

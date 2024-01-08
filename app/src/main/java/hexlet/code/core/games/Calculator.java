@@ -19,8 +19,8 @@ public final class Calculator extends AbstractBaseGame {
 
     private static Task task() {
         var supportedOperations = BinaryOperationType.values();
-        var firstRandomOperand = getRandomIntInRange(1, MAX_VALUE);
-        var secondRandomOperand = getRandomIntInRange(1, MAX_VALUE);
+        var firstRandomOperand = getRandomIntInDefaultRange();
+        var secondRandomOperand = getRandomIntInDefaultRange();
         var randomOperationIndex = getRandomIntInRange(0, supportedOperations.length - 1);
         var operation = supportedOperations[randomOperationIndex];
         var operationSign = operation.getSign();

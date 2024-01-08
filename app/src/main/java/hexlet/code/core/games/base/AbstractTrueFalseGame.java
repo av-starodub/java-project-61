@@ -11,7 +11,7 @@ import java.util.function.Predicate;
 public abstract class AbstractTrueFalseGame extends AbstractBaseGame {
 
     protected static Task task(Predicate<Integer> check) {
-        var randomNumber = getRandomIntInRange(0, MAX_VALUE);
+        var randomNumber = getRandomIntInDefaultRange();
         var isTrue = check.test(randomNumber);
         var question = String.valueOf(randomNumber);
         var answer = isTrue ? "yes" : "no";
