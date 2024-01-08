@@ -23,7 +23,7 @@ public final class GreatestCommonDivisor extends AbstractBaseGame {
         return Task.of(question, String.valueOf(answer));
     }
 
-    public static int findGCD(int firstNumber, int secondNumber) {
+    private static int findGCD(int firstNumber, int secondNumber) {
         if (secondNumber == 0 && firstNumber == 0) {
             throw new IllegalArgumentException("Both arguments are zero. ");
         }
