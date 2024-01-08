@@ -18,14 +18,14 @@ public class App {
     public static void main(String[] args) {
         showMenu();
         try (var scanner = new Scanner(System.in, Charset.defaultCharset())) {
-            var userChoice = scanner.nextLine();
-            switch (userChoice) {
+            var playerChoice = scanner.nextLine();
+            switch (playerChoice) {
                 case "1" -> Cli.greet();
-                case "2" -> ParityCheck.run(greetPlayer(scanner));
-                case "3" -> Calculator.run(greetPlayer(scanner));
-                case "4" -> GreatestCommonDivisor.run(greetPlayer(scanner));
-                case "5" -> ArithmeticProgression.run(greetPlayer(scanner));
-                case "6" -> IsTheNumberPrime.run(greetPlayer(scanner));
+                case "2" -> run(ParityCheck::run, scanner);
+                case "3" -> run(Calculator::run, scanner);
+                case "4" -> run(GreatestCommonDivisor::run, scanner);
+                case "5" -> run(ArithmeticProgression::run, scanner);
+                case "6" -> run(IsTheNumberPrime::run, scanner);
                 default -> exit();
             }
         }
@@ -44,11 +44,20 @@ public class App {
                 Your choice:\s""");
     }
 
-    private static String greetPlayer(Scanner scanner) {
+    private static void run(GameRunner runner, Scanner scanner) {
+        var playerName = getPlayerName(scanner);
+        runner.run(playerName);
+    }
+
+    @FunctionalInterface
+    private interface GameRunner {
+        void run(String playerName);
+    }
+
+    private static String getPlayerName(Scanner scanner) {
         System.out.print(GREETINGS);
-        var userName = scanner.nextLine();
-        System.out.printf("Hello, %s!\n", userName);
-        return userName;
+        var playerName = scanner.nextLine();
+        return String.format("Hello, %s!\n", playerName);
     }
 
     private static void exit() {
