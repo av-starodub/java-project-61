@@ -21,11 +21,11 @@ public class App {
             var userChoice = scanner.nextLine();
             switch (userChoice) {
                 case "1" -> Cli.greet();
-                case "2" -> ParityCheck.run(getPlayerName(scanner));
-                case "3" -> Calculator.run(getPlayerName(scanner));
-                case "4" -> GreatestCommonDivisor.run(getPlayerName(scanner));
-                case "5" -> ArithmeticProgression.run(getPlayerName(scanner));
-                case "6" -> IsTheNumberPrime.run(getPlayerName(scanner));
+                case "2" -> ParityCheck.run(greetPlayer(scanner));
+                case "3" -> Calculator.run(greetPlayer(scanner));
+                case "4" -> GreatestCommonDivisor.run(greetPlayer(scanner));
+                case "5" -> ArithmeticProgression.run(greetPlayer(scanner));
+                case "6" -> IsTheNumberPrime.run(greetPlayer(scanner));
                 default -> exit();
             }
         }
@@ -44,9 +44,11 @@ public class App {
                 Your choice:\s""");
     }
 
-    private static String getPlayerName(Scanner scanner) {
+    private static String greetPlayer(Scanner scanner) {
         System.out.print(GREETINGS);
-        return scanner.nextLine();
+        var userName = scanner.nextLine();
+        System.out.printf("Hello, %s!\n", userName);
+        return userName;
     }
 
     private static void exit() {
