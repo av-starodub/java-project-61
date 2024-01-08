@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class App {
     public static final int ROUNDS_DEFAULT = 3;
     public static final String GREETINGS = """
-            Welcome to the Brain Games!
+            \nWelcome to the Brain Games!
             May I have your name?\s""";
 
     public static void main(String[] args) {
@@ -57,7 +57,8 @@ public class App {
     private static String getPlayerName(Scanner scanner) {
         System.out.print(GREETINGS);
         var playerName = scanner.nextLine();
-        return String.format("Hello, %s!\n", playerName);
+        System.out.printf("Hello, %s!\n", playerName);
+        return playerName;
     }
 
     private static void exit() {
