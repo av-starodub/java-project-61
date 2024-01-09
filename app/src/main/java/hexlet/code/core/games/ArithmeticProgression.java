@@ -13,8 +13,8 @@ public final class ArithmeticProgression extends AbstractBaseGame {
     private static final int MAX_PROGRESSION_LENGTH = 10;
     private static final int MAX_STEP_LENGTH = 9;
 
-    public static void run(String playerName) {
-        AbstractBaseGame.run(ArithmeticProgression::task, GAME_DESCRIPTION, playerName);
+    public static void run() {
+        AbstractBaseGame.run(ArithmeticProgression::task, GAME_DESCRIPTION);
     }
 
     private static Task task() {

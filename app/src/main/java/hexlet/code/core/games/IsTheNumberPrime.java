@@ -14,8 +14,8 @@ public final class IsTheNumberPrime extends AbstractTrueFalseGame {
     private static final int START_PRIME = 5;
     private static final int STEP = 6;
 
-    public static void run(String playerName) {
-        AbstractBaseGame.run(() -> AbstractTrueFalseGame.task(IsTheNumberPrime::isPrime), GAME_DESCRIPTION, playerName);
+    public static void run() {
+        AbstractBaseGame.run(() -> AbstractTrueFalseGame.task(IsTheNumberPrime::isPrime), GAME_DESCRIPTION);
     }
 
     private static boolean isPrime(int number) {

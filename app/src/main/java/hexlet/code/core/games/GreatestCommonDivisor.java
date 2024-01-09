@@ -11,8 +11,8 @@ import hexlet.code.core.task.Task;
 public final class GreatestCommonDivisor extends AbstractBaseGame {
     private static final String GAME_DESCRIPTION = "Find the greatest common divisor of given numbers.";
 
-    public static void run(String playerName) {
-        AbstractBaseGame.run(GreatestCommonDivisor::task, GAME_DESCRIPTION, playerName);
+    public static void run() {
+        AbstractBaseGame.run(GreatestCommonDivisor::task, GAME_DESCRIPTION);
     }
 
     private static Task task() {

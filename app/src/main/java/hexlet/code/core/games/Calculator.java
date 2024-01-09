@@ -13,8 +13,8 @@ import java.util.function.BiFunction;
 public final class Calculator extends AbstractBaseGame {
     private static final String GAME_DESCRIPTION = "What is the result of the expression?";
 
-    public static void run(String playerName) {
-        AbstractBaseGame.run(Calculator::task, GAME_DESCRIPTION, playerName);
+    public static void run() {
+        AbstractBaseGame.run(Calculator::task, GAME_DESCRIPTION);
     }
 
     private static Task task() {

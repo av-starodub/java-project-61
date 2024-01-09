@@ -20,14 +20,14 @@ public abstract class AbstractBaseGame {
      */
     private static final int DEFAULT_MAX_VALUE = 100;
 
-    protected static void run(TaskCreator taskCreator, String gameDescription, String playerName) {
+    protected static void run(TaskCreator taskCreator, String gameDescription) {
         var tasks = build(taskCreator);
-        Engine.play(tasks, gameDescription, playerName);
+        Engine.play(tasks, gameDescription);
     }
 
     private static List<Task> build(TaskCreator taskCreator) {
         var tasks = new ArrayList<Task>();
-        for (var idx = 0; idx < App.ROUNDS_DEFAULT; idx++) {
+        for (var idx = 0; idx < Engine.ROUNDS_DEFAULT; idx++) {
             tasks.add(taskCreator.create());
         }
         return tasks;

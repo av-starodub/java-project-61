@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public final class Engine {
+    public static final int ROUNDS_DEFAULT = 3;
+    public static final String GREETINGS = """
+            \nWelcome to the Brain Games!
+            May I have your name?\s""";
     private static final String FAIL_STOP_GAME_TEMPLATE = """
             '%s' is wrong answer ;(. Correct answer was '%s'.
             Let's try again, %s!
@@ -16,8 +20,9 @@ public final class Engine {
     private Engine() {
     }
 
-    public static void play(List<Task> tasks, String gameDescription, String playerName) {
+    public static void play(List<Task> tasks, String gameDescription) {
         try (var scanner = new Scanner(System.in, Charset.defaultCharset())) {
+            var playerName = getPlayerName(scanner);
             print(gameDescription);
             for (var task : tasks) {
                 ask(task.getQuestion());
@@ -31,6 +36,13 @@ public final class Engine {
             }
             stopGame(WIN_STOP_GAME_TEMPLATE, playerName);
         }
+    }
+
+    private static String getPlayerName(Scanner scanner) {
+        System.out.print(GREETINGS);
+        var playerName = scanner.nextLine();
+        System.out.printf("Hello, %s!\n", playerName);
+        return playerName;
     }
 
     private static void ask(String question) {

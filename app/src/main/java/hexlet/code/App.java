@@ -10,10 +10,6 @@ import java.nio.charset.Charset;
 import java.util.Scanner;
 
 public class App {
-    public static final int ROUNDS_DEFAULT = 3;
-    public static final String GREETINGS = """
-            \nWelcome to the Brain Games!
-            May I have your name?\s""";
 
     public static void main(String[] args) {
         System.out.print("""
@@ -30,31 +26,14 @@ public class App {
             var playerChoice = scanner.nextLine();
             switch (playerChoice) {
                 case "1" -> Cli.greet();
-                case "2" -> run(ParityCheck::run, scanner);
-                case "3" -> run(Calculator::run, scanner);
-                case "4" -> run(GreatestCommonDivisor::run, scanner);
-                case "5" -> run(ArithmeticProgression::run, scanner);
-                case "6" -> run(IsTheNumberPrime::run, scanner);
+                case "2" -> ParityCheck.run();
+                case "3" -> Calculator.run();
+                case "4" -> GreatestCommonDivisor.run();
+                case "5" -> ArithmeticProgression.run();
+                case "6" -> IsTheNumberPrime.run();
                 case "0" -> System.out.println("\nGoodbye!");
                 default -> System.out.println("\nInvalid number entered: " + playerChoice);
             }
         }
-    }
-
-    private static void run(GameRunner runner, Scanner scanner) {
-        var playerName = getPlayerName(scanner);
-        runner.run(playerName);
-    }
-
-    @FunctionalInterface
-    private interface GameRunner {
-        void run(String playerName);
-    }
-
-    private static String getPlayerName(Scanner scanner) {
-        System.out.print(GREETINGS);
-        var playerName = scanner.nextLine();
-        System.out.printf("Hello, %s!\n", playerName);
-        return playerName;
     }
 }
