@@ -16,22 +16,6 @@ public class App {
             May I have your name?\s""";
 
     public static void main(String[] args) {
-        showMenu();
-        try (var scanner = new Scanner(System.in, Charset.defaultCharset())) {
-            var playerChoice = scanner.nextLine();
-            switch (playerChoice) {
-                case "1" -> Cli.greet();
-                case "2" -> run(ParityCheck::run, scanner);
-                case "3" -> run(Calculator::run, scanner);
-                case "4" -> run(GreatestCommonDivisor::run, scanner);
-                case "5" -> run(ArithmeticProgression::run, scanner);
-                case "6" -> run(IsTheNumberPrime::run, scanner);
-                default -> exit();
-            }
-        }
-    }
-
-    private static void showMenu() {
         System.out.print("""
                 Please enter the game number and press Enter.
                 1 - Greet
@@ -42,6 +26,19 @@ public class App {
                 6 - Prime
                 0 - Exit
                 Your choice:\s""");
+        try (var scanner = new Scanner(System.in, Charset.defaultCharset())) {
+            var playerChoice = scanner.nextLine();
+            switch (playerChoice) {
+                case "1" -> Cli.greet();
+                case "2" -> run(ParityCheck::run, scanner);
+                case "3" -> run(Calculator::run, scanner);
+                case "4" -> run(GreatestCommonDivisor::run, scanner);
+                case "5" -> run(ArithmeticProgression::run, scanner);
+                case "6" -> run(IsTheNumberPrime::run, scanner);
+                case "0" -> System.out.println("\nGoodbye!");
+                default -> System.out.println("\nInvalid number entered: " + playerChoice);
+            }
+        }
     }
 
     private static void run(GameRunner runner, Scanner scanner) {
@@ -59,9 +56,5 @@ public class App {
         var playerName = scanner.nextLine();
         System.out.printf("Hello, %s!\n", playerName);
         return playerName;
-    }
-
-    private static void exit() {
-        System.out.println();
     }
 }
