@@ -4,7 +4,6 @@ import hexlet.code.games.base.AbstractBaseGame;
 
 import java.util.AbstractMap;
 import java.util.Map;
-import java.util.function.BiFunction;
 
 /**
  * Game "Calculator".
@@ -13,60 +12,34 @@ import java.util.function.BiFunction;
  */
 public final class Calculator extends AbstractBaseGame {
     private static final String GAME_DESCRIPTION = "What is the result of the expression?";
+    private static final char[] OPERATIONS = {'+', '-', '*'};
 
     public static void run() {
         AbstractBaseGame.run(Calculator::task, GAME_DESCRIPTION);
     }
 
     private static Map.Entry<String, String> task() {
-        var supportedOperations = BinaryOperationType.values();
         var firstRandomOperand = getRandomIntInDefaultRange();
         var secondRandomOperand = getRandomIntInDefaultRange();
-        var randomOperationIndex = getRandomIntInRange(0, supportedOperations.length - 1);
-        var operation = supportedOperations[randomOperationIndex];
-        var operationSign = operation.getSign();
-        var question = String.format("%d %s %d", firstRandomOperand, operationSign, secondRandomOperand);
-        var answer = operation.calculate(firstRandomOperand, secondRandomOperand);
+        var randomOperationIndex = getRandomIntInRange(0, OPERATIONS.length - 1);
+        var operation = OPERATIONS[randomOperationIndex];
+        var question = String.format("%d %s %d", firstRandomOperand, operation, secondRandomOperand);
+        var answer = calculate(operation, firstRandomOperand, secondRandomOperand);
         return new AbstractMap.SimpleEntry<>(question, String.valueOf(answer));
     }
 
-    /**
-     * Supported math binary operations.
-     */
-    private enum BinaryOperationType {
-        ADDITION("+") {
-            @Override
-            BiFunction<Integer, Integer, Integer> getOperation() {
-                return Integer::sum;
+    private static int calculate(char operator, int firstOperand, int secondOperand) {
+        switch (operator) {
+            case '+' -> {
+                return firstOperand + secondOperand;
             }
-        },
-        SUBTRACTION("-") {
-            @Override
-            BiFunction<Integer, Integer, Integer> getOperation() {
-                return (a, b) -> a - b;
+            case '-' -> {
+                return firstOperand - secondOperand;
             }
-        },
-        TIMES("*") {
-            @Override
-            BiFunction<Integer, Integer, Integer> getOperation() {
-                return (a, b) -> a * b;
+            case '*' -> {
+                return firstOperand * secondOperand;
             }
-        };
-
-        private final String operationSign;
-
-        BinaryOperationType(String sign) {
-            operationSign = sign;
+            default -> throw new UnsupportedOperationException("Unknown operator: " + operator);
         }
-
-        private String getSign() {
-            return operationSign;
-        }
-
-        private int calculate(int firstOperand, int secondOperand) {
-            return getOperation().apply(firstOperand, secondOperand);
-        }
-
-        abstract BiFunction<Integer, Integer, Integer> getOperation();
     }
 }
