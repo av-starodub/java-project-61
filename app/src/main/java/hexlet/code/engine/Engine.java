@@ -15,7 +15,7 @@ public final class Engine {
             '%s' is wrong answer ;(. Correct answer was '%s'.
             Let's try again, %s!
             """;
-    private static final String WIN_STOP_GAME_TEMPLATE = "Congratulations, %s!\n";
+    private static final String WIN_STOP_GAME_TEMPLATE = "\nCongratulations, %s!\n";
 
     private Engine() {
     }
