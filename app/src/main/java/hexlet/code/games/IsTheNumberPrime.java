@@ -19,19 +19,23 @@ public final class IsTheNumberPrime extends AbstractTrueFalseGame {
     }
 
     private static boolean isPrime(int number) {
-        var result = number >= 1;
+        if (number < 1) {
+            return false;
+        }
+        if (number % 2 == 0 || number % MIN_DIVISOR == 0) {
+            return false;
+        }
         var sqrt = Math.sqrt(number);
-        if (number % 2 == 0 || number % MIN_DIVISOR == 0 || sqrt % 1 == 0) {
-            result = false;
+        if (sqrt != 1 && sqrt % 1 == 0) {
+            return false;
         }
         if (number > START_PRIME) {
             for (var divisor = START_PRIME; divisor < sqrt; divisor += STEP) {
                 if (number % divisor == 0 || number % (divisor + 2) == 0) {
-                    result = false;
-                    break;
+                    return false;
                 }
             }
         }
-        return result;
+        return true;
     }
 }
