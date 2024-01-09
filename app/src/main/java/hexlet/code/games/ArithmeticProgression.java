@@ -12,6 +12,7 @@ import java.util.Map;
  */
 public final class ArithmeticProgression extends AbstractBaseGame {
     private static final String GAME_DESCRIPTION = "What number is missing in the progression?";
+    private static final int MIN_PROGRESSION_LENGTH = 5;
     private static final int MAX_PROGRESSION_LENGTH = 10;
     private static final int MAX_STEP_LENGTH = 9;
 
@@ -20,31 +21,22 @@ public final class ArithmeticProgression extends AbstractBaseGame {
     }
 
     private static Map.Entry<String, String> task() {
-        int[] progression = getRandomArithmeticProgression();
-        var randomIdx = getRandomIntInRange(0, MAX_PROGRESSION_LENGTH - 1);
-        var missingNumber = progression[randomIdx];
-        var questionBuilder = new StringBuilder();
-        for (int number : progression) {
-            if (number == missingNumber) {
-                questionBuilder.append(".. ");
-            } else {
-                questionBuilder.append(number).append(" ");
-            }
-        }
-        var question = questionBuilder.substring(0, questionBuilder.length() - 1);
-        var answer = String.valueOf(missingNumber);
+        var start = getRandomIntInDefaultRange();
+        var step = getRandomIntInRange(1, MAX_STEP_LENGTH);
+        var length = getRandomIntInRange(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+        var progression = createArithmeticProgression(start, step, length);
+        var missingNumberIdx = getRandomIntInRange(0, length - 1);
+        var answer = progression[missingNumberIdx];
+        progression[missingNumberIdx] = "..";
+        var question = String.join(" ", progression);
         return new AbstractMap.SimpleEntry<>(question, answer);
     }
 
-    private static int[] getRandomArithmeticProgression() {
-        int[] progression = new int[MAX_PROGRESSION_LENGTH];
-        int step = getRandomIntInRange(1, MAX_STEP_LENGTH);
-        int next = getRandomIntInDefaultRange();
-        for (var idx = 0; idx < MAX_PROGRESSION_LENGTH; idx++) {
-            progression[idx] = next;
-            next += step;
+    private static String[] createArithmeticProgression(int first, int step, int length) {
+        String[] progression = new String[length];
+        for (var idx = 0; idx < length; idx++) {
+            progression[idx] = String.valueOf(first + idx * step);
         }
         return progression;
     }
-
 }
