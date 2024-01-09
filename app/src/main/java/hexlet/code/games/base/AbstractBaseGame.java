@@ -27,9 +27,12 @@ public abstract class AbstractBaseGame {
         var tasks = new HashMap<String, String>();
         for (var idx = 0; idx < Engine.ROUNDS_DEFAULT; idx++) {
             var task = taskCreator.create();
-            if (tasks.putIfAbsent(task.getKey(), task.getValue()) == null) {
+            var question = task.getKey();
+            if (tasks.containsKey(question)) {
                 idx--;
+                continue;
             }
+            tasks.put(question, task.getValue());
         }
         return tasks;
     }
