@@ -1,8 +1,9 @@
-package hexlet.code.core.games;
+package hexlet.code.games;
 
-import hexlet.code.core.task.Task;
-import hexlet.code.core.games.base.AbstractBaseGame;
+import hexlet.code.games.base.AbstractBaseGame;
 
+import java.util.AbstractMap;
+import java.util.Map;
 import java.util.function.BiFunction;
 
 /**
@@ -17,7 +18,7 @@ public final class Calculator extends AbstractBaseGame {
         AbstractBaseGame.run(Calculator::task, GAME_DESCRIPTION);
     }
 
-    private static Task task() {
+    private static Map.Entry<String, String> task() {
         var supportedOperations = BinaryOperationType.values();
         var firstRandomOperand = getRandomIntInDefaultRange();
         var secondRandomOperand = getRandomIntInDefaultRange();
@@ -26,7 +27,7 @@ public final class Calculator extends AbstractBaseGame {
         var operationSign = operation.getSign();
         var question = String.format("%d %s %d", firstRandomOperand, operationSign, secondRandomOperand);
         var answer = operation.calculate(firstRandomOperand, secondRandomOperand);
-        return Task.of(question, String.valueOf(answer));
+        return new AbstractMap.SimpleEntry<>(question, String.valueOf(answer));
     }
 
     /**

@@ -1,7 +1,9 @@
-package hexlet.code.core.games;
+package hexlet.code.games;
 
-import hexlet.code.core.games.base.AbstractBaseGame;
-import hexlet.code.core.task.Task;
+import hexlet.code.games.base.AbstractBaseGame;
+
+import java.util.AbstractMap;
+import java.util.Map;
 
 /**
  * Game "Greatest common divisor".
@@ -15,12 +17,12 @@ public final class GreatestCommonDivisor extends AbstractBaseGame {
         AbstractBaseGame.run(GreatestCommonDivisor::task, GAME_DESCRIPTION);
     }
 
-    private static Task task() {
+    private static Map.Entry<String, String> task() {
         var firstRandomNumber = getRandomIntInDefaultRange();
         var secondRandomNumber = getRandomIntInDefaultRange();
         var question = String.format("%d %d", firstRandomNumber, secondRandomNumber);
         var answer = findGCD(firstRandomNumber, secondRandomNumber);
-        return Task.of(question, String.valueOf(answer));
+        return new AbstractMap.SimpleEntry<>(question, String.valueOf(answer));
     }
 
     private static int findGCD(int firstNumber, int secondNumber) {

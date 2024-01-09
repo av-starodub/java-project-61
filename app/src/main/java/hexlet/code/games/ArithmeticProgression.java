@@ -1,7 +1,9 @@
-package hexlet.code.core.games;
+package hexlet.code.games;
 
-import hexlet.code.core.games.base.AbstractBaseGame;
-import hexlet.code.core.task.Task;
+import hexlet.code.games.base.AbstractBaseGame;
+
+import java.util.AbstractMap;
+import java.util.Map;
 
 /**
  * Game "Arithmetic progression".
@@ -17,7 +19,7 @@ public final class ArithmeticProgression extends AbstractBaseGame {
         AbstractBaseGame.run(ArithmeticProgression::task, GAME_DESCRIPTION);
     }
 
-    private static Task task() {
+    private static Map.Entry<String, String> task() {
         int[] progression = getRandomArithmeticProgression();
         var randomIdx = getRandomIntInRange(0, MAX_PROGRESSION_LENGTH - 1);
         var missingNumber = progression[randomIdx];
@@ -31,7 +33,7 @@ public final class ArithmeticProgression extends AbstractBaseGame {
         }
         var question = questionBuilder.substring(0, questionBuilder.length() - 1);
         var answer = String.valueOf(missingNumber);
-        return Task.of(question, answer);
+        return new AbstractMap.SimpleEntry<>(question, answer);
     }
 
     private static int[] getRandomArithmeticProgression() {

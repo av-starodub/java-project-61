@@ -1,7 +1,7 @@
-package hexlet.code.core.games;
+package hexlet.code.games;
 
-import hexlet.code.core.games.base.AbstractBaseGame;
-import hexlet.code.core.games.base.AbstractTrueFalseGame;
+import hexlet.code.games.base.AbstractBaseGame;
+import hexlet.code.games.base.AbstractTrueFalseGame;
 
 /**
  * Game "Is the number prime?".

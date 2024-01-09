@@ -1,11 +1,9 @@
-package hexlet.code.core.games.base;
+package hexlet.code.games.base;
 
-import hexlet.code.App;
-import hexlet.code.core.task.Task;
 import hexlet.code.engine.Engine;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A general class for all games.
@@ -25,17 +23,18 @@ public abstract class AbstractBaseGame {
         Engine.play(tasks, gameDescription);
     }
 
-    private static List<Task> build(TaskCreator taskCreator) {
-        var tasks = new ArrayList<Task>();
+    private static Map<String, String> build(TaskCreator taskCreator) {
+        var tasks = new HashMap<String, String>();
         for (var idx = 0; idx < Engine.ROUNDS_DEFAULT; idx++) {
-            tasks.add(taskCreator.create());
+            var task = taskCreator.create();
+            tasks.put(task.getKey(), task.getValue());
         }
         return tasks;
     }
 
     @FunctionalInterface
     protected interface TaskCreator {
-        Task create();
+        Map.Entry<String, String> create();
     }
 
     protected static int getRandomIntInDefaultRange() {

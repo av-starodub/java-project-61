@@ -1,7 +1,7 @@
-package hexlet.code.core.games.base;
+package hexlet.code.games.base;
 
-import hexlet.code.core.task.Task;
-
+import java.util.AbstractMap;
+import java.util.Map;
 import java.util.function.Predicate;
 
 /**
@@ -10,11 +10,11 @@ import java.util.function.Predicate;
  */
 public abstract class AbstractTrueFalseGame extends AbstractBaseGame {
 
-    protected static Task task(Predicate<Integer> check) {
+    protected static Map.Entry<String, String> task(Predicate<Integer> check) {
         var randomNumber = getRandomIntInDefaultRange();
         var isTrue = check.test(randomNumber);
         var question = String.valueOf(randomNumber);
         var answer = isTrue ? "yes" : "no";
-        return Task.of(question, answer);
+        return new AbstractMap.SimpleEntry<>(question, answer);
     }
 }

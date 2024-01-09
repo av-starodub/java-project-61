@@ -1,9 +1,7 @@
 package hexlet.code.engine;
 
-import hexlet.code.core.task.Task;
-
 import java.nio.charset.Charset;
-import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public final class Engine {
@@ -20,16 +18,22 @@ public final class Engine {
     private Engine() {
     }
 
-    public static void play(List<Task> tasks, String gameDescription) {
+    /**
+     *
+     * @param tasks Map where the key is the question and the value is the correct answer.
+     * @param gameDescription game rules.
+     */
+    public static void play(Map<String, String> tasks, String gameDescription) {
         try (var scanner = new Scanner(System.in, Charset.defaultCharset())) {
             var playerName = getPlayerName(scanner);
             print(gameDescription);
-            for (var task : tasks) {
-                ask(task.getQuestion());
-                var userAnswer = scanner.nextLine();
-                var correctAnswer = task.getAnswer();
-                if (!correctAnswer.equals(userAnswer)) {
-                    stopGame(FAIL_STOP_GAME_TEMPLATE, userAnswer, correctAnswer, playerName);
+            for (var task : tasks.entrySet()) {
+                var question = task.getKey();
+                var correctAnswer = task.getValue();
+                ask(question);
+                var playerAnswer = scanner.nextLine();
+                if (!correctAnswer.equals(playerAnswer)) {
+                    stopGame(FAIL_STOP_GAME_TEMPLATE, playerAnswer, correctAnswer, playerName);
                     return;
                 }
                 print("Correct!");
@@ -49,8 +53,8 @@ public final class Engine {
         System.out.printf("Question: %s\nYour answer: ", question);
     }
 
-    private static void stopGame(String stopGameTemplate, String... params) {
-        System.out.printf(stopGameTemplate, (Object[]) params);
+    private static void stopGame(String stopGameTemplate, Object... params) {
+        System.out.printf(stopGameTemplate, params);
     }
 
     private static void print(String message) {

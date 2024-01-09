@@ -1,10 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.core.games.ArithmeticProgression;
-import hexlet.code.core.games.Calculator;
-import hexlet.code.core.games.GreatestCommonDivisor;
-import hexlet.code.core.games.ParityCheck;
-import hexlet.code.core.games.IsTheNumberPrime;
+import hexlet.code.games.ArithmeticProgression;
+import hexlet.code.games.Calculator;
+import hexlet.code.games.GreatestCommonDivisor;
+import hexlet.code.games.ParityCheck;
+import hexlet.code.games.IsTheNumberPrime;
 
 import java.nio.charset.Charset;
 import java.util.Scanner;
