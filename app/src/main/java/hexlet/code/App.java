@@ -24,6 +24,7 @@ public class App {
                 Your choice:\s""");
         try (var scanner = new Scanner(System.in, Charset.defaultCharset())) {
             var playerChoice = scanner.nextLine();
+            System.out.println();
             switch (playerChoice) {
                 case "1" -> Cli.greet();
                 case "2" -> ParityCheck.run();
@@ -31,9 +32,10 @@ public class App {
                 case "4" -> GreatestCommonDivisor.run();
                 case "5" -> ArithmeticProgression.run();
                 case "6" -> IsTheNumberPrime.run();
-                case "0" -> System.out.println("\nGoodbye!");
-                default -> System.out.println("\nInvalid number entered: " + playerChoice);
+                case "0" -> System.out.println("Goodbye!");
+                default -> System.out.println("Invalid number entered: " + playerChoice);
             }
         }
+        System.out.println();
     }
 }
