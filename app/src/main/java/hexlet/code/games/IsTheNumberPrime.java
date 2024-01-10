@@ -1,21 +1,20 @@
 package hexlet.code.games;
 
 import hexlet.code.games.base.AbstractBaseGame;
-import hexlet.code.games.base.AbstractTrueFalseGame;
 
 /**
  * Game "Is the number prime?".
  * The essence of the game is as follows: the user is shown a random number.
  * And he needs to answer yes if the number is prime, or no.
  */
-public final class IsTheNumberPrime extends AbstractTrueFalseGame {
+public final class IsTheNumberPrime extends AbstractBaseGame {
     private static final String GAME_DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int MIN_DIVISOR = 3;
     private static final int START_PRIME = 5;
     private static final int STEP = 6;
 
     public static void run() {
-        AbstractBaseGame.run(() -> AbstractTrueFalseGame.task(IsTheNumberPrime::isPrime), GAME_DESCRIPTION);
+        AbstractBaseGame.run(() -> AbstractBaseGame.task(IsTheNumberPrime::isPrime), GAME_DESCRIPTION);
     }
 
     private static boolean isPrime(int number) {
