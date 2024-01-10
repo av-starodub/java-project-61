@@ -5,6 +5,8 @@ import hexlet.code.games.base.AbstractBaseGame;
 import java.util.AbstractMap;
 import java.util.Map;
 
+import static hexlet.code.ulil.MathRandomUtils.getRandomIntInRange;
+
 /**
  * Game "Arithmetic progression".
  * A series of numbers is presented, forming an arithmetic progression.

@@ -1,6 +1,7 @@
 package hexlet.code.games.base;
 
 import hexlet.code.engine.Engine;
+import hexlet.code.ulil.MathRandomUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -43,10 +44,6 @@ public abstract class AbstractBaseGame {
     }
 
     protected static int getRandomIntInDefaultRange() {
-        return getRandomIntInRange(DEFAULT_MIN_VALUE, DEFAULT_MAX_VALUE);
-    }
-
-    protected static int getRandomIntInRange(int min, int max) {
-        return (int) (Math.random() * (max - min + 1)) + min;
+        return MathRandomUtils.getRandomIntInRange(DEFAULT_MIN_VALUE, DEFAULT_MAX_VALUE);
     }
 }

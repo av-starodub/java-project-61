@@ -5,6 +5,8 @@ import hexlet.code.games.base.AbstractBaseGame;
 import java.util.AbstractMap;
 import java.util.Map;
 
+import static hexlet.code.ulil.MathRandomUtils.getRandomIntInRange;
+
 /**
  * Game "Calculator".
  * The user is shown a random mathematical expression, such as 35 + 16,
